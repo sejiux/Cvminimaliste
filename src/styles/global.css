@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'PoppinsBlack';
+    src: url('../assets/police/Poppins-Black.otf');
+}
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('../assets/police/Poppins-Bold.otf');
+}
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('../assets/police/Poppins-Medium.otf');
+}
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('../assets/police/Poppins-Regular.otf');
+}
+@font-face {
+  font-family: 'PoppinsLight';
+  src: url('../assets/police/Poppins-Light.otf');
+}
+@font-face {
+  font-family: 'PoppinsXLight';
+  src: url('../assets/police/Poppins-ExtraLight.otf');
+}
+@font-face {
+  font-family: 'FrontageRegular';
+  src: url('../assets/police/Frontage-Regular.otf');
+}
+@font-face {
+  font-family: 'FrontageBold';
+  src: url('../assets/police/Frontage-Bold.otf');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
