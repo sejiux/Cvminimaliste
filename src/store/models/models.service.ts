@@ -1,6 +1,7 @@
 import { ModelsStore, modelsStore } from './models.store';
 import { ID } from '@datorama/akita';
 import { ProfilDto } from '@api/dto/profilDto';
+import { TrainingDto } from '@api/dto/trainingDto';
 
 export class ModelsService {
   constructor(private store: ModelsStore) {}
@@ -16,6 +17,12 @@ export class ModelsService {
     this.store.update((state) => ({
       ...state,
       profil: value,
+    }));
+  };
+
+  addTraining = (value: TrainingDto[]) => {
+    this.store.update(() => ({
+      trainings: value,
     }));
   };
 }

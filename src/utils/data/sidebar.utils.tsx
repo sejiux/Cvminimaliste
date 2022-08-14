@@ -1,10 +1,10 @@
 import React from 'react';
-import FormsMore from '@components/Sidebar/Forms/forms-more';
-import FormsProfil from '@components/Sidebar/Forms/forms-profil';
-import FormsSkills from '@components/Sidebar/Forms/forms-skills';
-import FormsTraining from '@components/Sidebar/Forms/forms-training';
+import More from '@components/Sidebar/Forms/more';
+import Profil from '@components/Sidebar/Forms/profil';
+import Skills from '@components/Sidebar/Forms/skills';
+import Trainings from '@components/Sidebar/Forms/trainings';
 import Models from '@components/Sidebar/Forms/models';
-import FormsExperience from '@components/Sidebar/Forms/forms-experience';
+import Experiences from '@components/Sidebar/Forms/experiences';
 import {
   MdOutlineViewCarousel,
   MdOutlineAccountCircle,
@@ -54,15 +54,15 @@ export const renderOfButtonSelected = (selected: number) => {
     case 0:
       return <Models />;
     case 1:
-      return <FormsProfil />;
+      return <Profil />;
     case 2:
-      return <FormsTraining />;
+      return <Trainings />;
     case 3:
-      return <FormsExperience />;
+      return <Experiences />;
     case 4:
-      return <FormsSkills />;
+      return <Skills />;
     case 5:
-      return <FormsMore />;
+      return <More />;
     default:
       return <Models />;
   }

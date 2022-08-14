@@ -63,7 +63,7 @@ const Create = () => {
           isSelected={isSelected}
         />
         {value === selected && isSelected && (
-          <div className="bg-white w-[700px] h-full relative">
+          <div className="bg-white w-[700px] h-screen relative">
             {renderOfButtonSelected(selected)}
           </div>
         )}

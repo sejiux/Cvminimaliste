@@ -22,7 +22,7 @@ export const trainingInital = [
   },
   {
     id: 1,
-    level: 'NIVEAU Matière',
+    level: 'NIVEAU Matières',
     from: new Date(2020),
     to: new Date(2022),
     schoolName: 'Nom Etablissement',

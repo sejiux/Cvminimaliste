@@ -1,6 +1,5 @@
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { LanguageDto } from '@api/dto/languageDto';
-import { ListDto } from '@api/dto/listDto';
 import { ProfilDto } from '@api/dto/profilDto';
 import { SkillsDto } from '@api/dto/skillsDto';
 import { StyleDto } from '@api/dto/styleDto';

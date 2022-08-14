@@ -17,7 +17,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
   const { sidebarData, selected, setSelected, setValue, isSelected, setIsSelected } = props;
 
   return (
-    <aside className="relative w-28" aria-label="Sidebar">
+    <aside className="relative w-20 h-screen" aria-label="Sidebar">
       <div className="h-screen w-auto bg-gray-100">
         <ul className="w-full">
           {sidebarData.map((data, index) => (
