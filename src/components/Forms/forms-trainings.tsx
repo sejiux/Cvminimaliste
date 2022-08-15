@@ -2,61 +2,59 @@ import React, { FC } from 'react';
 import { TrainingDto } from '@api/dto/trainingDto';
 import { trainingInital } from '@utils/data/initialValue.utils';
 import { updateTrainingField } from '@store/models/updateField/updateField';
+import { formsTrainingsOneCols, formsTrainingsTwoCols } from '@utils/data/forms.utils';
 
 interface FormsTrainingsProps {
   trainings?: TrainingDto[];
   training?: TrainingDto;
-  index?: number;
+  trainingId?: number;
 }
 
 const FormsTrainings: FC<FormsTrainingsProps> = (props) => {
-  const { trainings, training, index } = props;
+  const { trainings, training, trainingId } = props;
 
   return (
-    <form key={index} className="mt-5">
-      <div className="mb-6">
-        <label htmlFor="schoolName" className="block mb-2 text-sm font-light">
-          Nom de l{`'`}établissement/entreprise
-        </label>
-        <input
-          type="text"
-          id="schoolName"
-          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-          onChange={updateTrainingField('schoolName', trainings, training!, index!)}
-        ></input>
-      </div>
-      <div className="mb-6">
-        <label htmlFor="level" className="block mb-2 text-sm font-light">
-          Niveau
-        </label>
-        <input
-          type="text"
-          id="level"
-          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-        ></input>
-      </div>
-      <div className="grid md:grid-cols-2 md:gap-6">
-        <div className="mb-6">
-          <label htmlFor="from" className="block mb-2 text-sm font-light">
-            Date de début
+    <form className="mt-5">
+      {formsTrainingsOneCols(training!, trainingId!).map((formTrainingOneCols, formId) => (
+        <div key={formId} className="mb-6">
+          <label htmlFor={formTrainingOneCols.name} className="block mb-2 text-sm font-light">
+            {formTrainingOneCols.label}
           </label>
           <input
-            type="text"
-            id="from"
+            type={formTrainingOneCols.type}
+            id={formTrainingOneCols.name}
             className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
+            onChange={updateTrainingField(formTrainingOneCols.name, trainings, trainingId!)}
+            value={
+              formTrainingOneCols.value !== formTrainingOneCols.initial
+                ? formTrainingOneCols.value
+                : undefined
+            }
           ></input>
         </div>
-        <div className="mb-6">
-          <label htmlFor="to" className="block mb-2 text-sm font-light">
-            Date de fin
-          </label>
-          <input
-            type="text"
-            id="to"
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-          ></input>
+      ))}
+      {formsTrainingsTwoCols(training!, trainingId!).map((formTrainingTwoCols, index) => (
+        <div key={index} className="grid md:grid-cols-2 md:gap-6">
+          {formTrainingTwoCols.map((formDataTwoCols, formId) => (
+            <div key={formId} className="mb-6">
+              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-sm font-light">
+                {formDataTwoCols.label}
+              </label>
+              <input
+                type={formDataTwoCols.type}
+                id={formDataTwoCols.name}
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
+                onChange={updateTrainingField(formDataTwoCols.name, trainings, trainingId!)}
+                value={
+                  formDataTwoCols.value !== formDataTwoCols.initial
+                    ? formDataTwoCols.value?.toString()
+                    : undefined
+                }
+              ></input>
+            </div>
+          ))}
         </div>
-      </div>
+      ))}
       <hr />
     </form>
   );

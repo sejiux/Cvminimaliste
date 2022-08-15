@@ -15,8 +15,6 @@ const Trainings = () => {
     };
   }, []);
 
-  console.log(trainings);
-
   return (
     <div className="px-14 py-10 text-[#303030] h-screen overflow-x-hidden">
       <div className="space-y-2">
@@ -24,13 +22,14 @@ const Trainings = () => {
         <hr />
       </div>
       {trainings?.map((data, index) => (
-        <FormsTrainings key={index} trainings={trainings} training={data} index={index} />
+        <FormsTrainings key={index} trainings={trainings} training={data} trainingId={index} />
       ))}
       <button
         onClick={() => {
           setCount(count + 1), setTrainings([...trainings!, { id: count }]);
         }}
-        className="mx-14 mt-5 text-sm border-2 border-[#303030] py-2 px-4 rounded-md font-normal text-[#303030] flex items-center hover:border-gray-[#303030]"
+        disabled={count > 3 ? true : false}
+        className="mx-14 mt-5 text-sm border-2 border-[#303030] py-2 px-4 rounded-md font-normal text-[#303030] flex items-center hover:border-gray-[#303030] disabled:gray-200 disabled:border-gray-200 disabled:text-gray-200"
       >
         <MdOutlineAddBox className="text-[#303030] mr-2 text-lg" />
         Ajouter une formation

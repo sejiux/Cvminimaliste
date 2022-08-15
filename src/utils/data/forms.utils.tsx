@@ -89,38 +89,38 @@ export const formsProfilTwoCols = (profil: ProfilDto) => [
   ],
 ];
 
-export const formsTrainingsOneCols = (trainings: TrainingDto) => [
+export const formsTrainingsOneCols = (trainings: TrainingDto, index: number) => [
   {
     label: `Nom de l'établissement`,
     type: 'text',
     name: 'schoolName',
     value: trainings?.schoolName,
-    initial: trainingInital.find((state) => state.schoolName)?.schoolName,
+    initial: trainingInital.find((state) => state.id === index)?.schoolName,
   },
   {
     label: 'Niveau',
     type: 'text',
     name: 'level',
     value: trainings?.level,
-    initial: trainingInital.find((state) => state.level)?.level,
+    initial: trainingInital.find((state) => state.id === index)?.level,
   },
 ];
 
-export const formsTrainingsTwoCols = (trainings: TrainingDto) => [
+export const formsTrainingsTwoCols = (trainings: TrainingDto, index: number) => [
   [
     {
       label: `Date de début`,
       type: 'date',
       name: 'from',
       value: trainings?.from,
-      initial: trainingInital.find((state) => state.from)?.from,
+      initial: trainingInital.find((state) => state.id === index)?.from,
     },
     {
       label: 'Date de fin',
       type: 'date',
       name: 'to',
       value: trainings?.to,
-      initial: trainingInital.find((state) => state.to)?.to,
+      initial: trainingInital.find((state) => state.id === index)?.to,
     },
   ],
 ];

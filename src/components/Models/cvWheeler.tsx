@@ -90,8 +90,8 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
                   {trainings?.map((data, index) => (
                     <DescriptionFormations
                       key={index}
-                      level={data.level!}
-                      schoolName={data.schoolName!}
+                      level={data?.level!}
+                      schoolName={data?.schoolName!}
                     />
                   ))}
                 </div>

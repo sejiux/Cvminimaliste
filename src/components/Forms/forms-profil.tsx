@@ -13,35 +13,41 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
 
   return (
     <form>
-      {formsProfilTwoCols(profil!).map((data, index) => (
+      {formsProfilTwoCols(profil!).map((formProfilTwoCols, index) => (
         <div key={index} className="grid md:grid-cols-2 md:gap-6">
-          {data.map((formData, index) => (
+          {formProfilTwoCols.map((formDataTwoCols, index) => (
             <div key={index} className="mb-6">
-              <label htmlFor={formData.name} className="block mb-2 text-sm font-light">
-                {formData.label}
+              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-sm font-light">
+                {formDataTwoCols.label}
               </label>
               <input
                 type="text"
-                id={formData.name}
+                id={formDataTwoCols.name}
                 className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-                onChange={updateProfilField(formData.name, profil)}
-                value={formData.value !== formData.initial ? formData.value : undefined}
+                onChange={updateProfilField(formDataTwoCols.name, profil)}
+                value={
+                  formDataTwoCols.value !== formDataTwoCols.initial
+                    ? formDataTwoCols.value
+                    : undefined
+                }
               />
             </div>
           ))}
         </div>
       ))}
-      {formsProfilOneCols(profil!).map((formData, index) => (
+      {formsProfilOneCols(profil!).map((formDataOneCols, index) => (
         <div key={index} className="mb-6">
-          <label htmlFor={formData.name} className="block mb-2 text-sm font-light">
-            {formData.label}
+          <label htmlFor={formDataOneCols.name} className="block mb-2 text-sm font-light">
+            {formDataOneCols.label}
           </label>
           <input
-            type={formData.type}
-            id={formData.name}
+            type={formDataOneCols.type}
+            id={formDataOneCols.name}
             className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-            onChange={updateProfilField(formData.name, profil)}
-            value={formData.value !== formData.initial ? formData.value : undefined}
+            onChange={updateProfilField(formDataOneCols.name, profil)}
+            value={
+              formDataOneCols.value !== formDataOneCols.initial ? formDataOneCols.value : undefined
+            }
           />
         </div>
       ))}

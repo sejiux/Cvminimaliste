@@ -21,7 +21,8 @@ export class ModelsService {
   };
 
   addTraining = (value: TrainingDto[]) => {
-    this.store.update(() => ({
+    this.store.update((state) => ({
+      ...state,
       trainings: value,
     }));
   };
