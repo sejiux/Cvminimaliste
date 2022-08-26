@@ -10,13 +10,15 @@ import { TrainingDto } from '@api/dto/trainingDto';
 import { SkillsDto } from '@api/dto/skillsDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { LanguageDto } from '@api/dto/languageDto';
+import { ListDto } from '@api/dto/listDto';
 
 interface CvWheelerProps {
   profil?: ProfilDto;
   trainings?: TrainingDto[];
   experiences?: ExperienceDto[];
-  skill?: SkillsDto;
-  language?: LanguageDto;
+  lists?: ListDto[];
+  skill?: SkillsDto[];
+  language?: LanguageDto[];
 }
 
 const CvWheeler: FC<CvWheelerProps> = (props) => {
@@ -50,32 +52,37 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
         <div className="space-y-4">
           <div className="flex space-x-6">
             <div className="flex flex-col space-y-4 w-64">
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
-                <div className="space-y-3">
-                  {experiences?.map((data, index) => (
-                    <DescriptionXp
-                      key={index}
-                      title={data.title}
-                      companyName={data.companyName}
-                      description={data.jobDescription}
-                    >
-                      {data.list?.map((data, index) => (
-                        <DescriptionLists key={index} title={data.title} />
-                      ))}
-                    </DescriptionXp>
-                  ))}
+              {experiences?.length! > 0 && (
+                <div className="space-y-1">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                  <div className="space-y-3">
+                    {experiences?.map((data, index) => (
+                      <DescriptionXp
+                        key={index}
+                        title={data.title}
+                        companyName={data.companyName}
+                        description={data.jobDescription}
+                      >
+                        {data.lists &&
+                          data.lists?.map((data, index) => (
+                            <DescriptionLists key={index} title={data.description} />
+                          ))}
+                      </DescriptionXp>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
-                <ul className="text-[7px] space-y-1">
-                  {language?.list?.map((data, index) => (
-                    <DescriptionLists key={index} title={data.title} />
-                  ))}
-                </ul>
-              </div>
+              {language?.length! > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                  <ul className="text-[7px] space-y-1">
+                    {language?.map((data, index) => (
+                      <DescriptionLists key={index} title={data.description} />
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col space-y-4 w-36">
@@ -84,27 +91,42 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
                 <DescriptionProfil description={profil?.about} />
               </div>
 
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
-                <div className="space-y-3">
-                  {trainings?.map((data, index) => (
-                    <DescriptionFormations
-                      key={index}
-                      level={data?.level!}
-                      schoolName={data?.schoolName!}
-                    />
-                  ))}
+              {trainings?.length! > 0 && (
+                <div className="space-y-1">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+                  <div className="space-y-3">
+                    {trainings?.map((data, index) => (
+                      <DescriptionFormations
+                        key={index}
+                        level={data?.level!}
+                        schoolName={data?.schoolName!}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
-                <ul className="text-[7px] space-y-1">
-                  {skill?.list?.map((data, index) => (
-                    <DescriptionLists key={index} title={data.title} />
-                  ))}
-                </ul>
-              </div>
+              {skill?.length! > 0 && (
+                <div className="space-y-1">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+                  <ul className="text-[7px] space-y-1">
+                    {skill?.map((data, index) => (
+                      <DescriptionLists key={index} title={data.description} />
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {language?.length! > 0 && (
+                <div className="space-y-1">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                  <ul className="text-[7px] space-y-1">
+                    {language?.map((data, index) => (
+                      <DescriptionLists key={index} title={data.description} />
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>

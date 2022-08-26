@@ -1,5 +1,4 @@
 import React from 'react';
-
 import CV1 from 'images/cv/1.png';
 import CV2 from 'images/cv/2.png';
 import CV3 from 'images/cv/3.png';
@@ -39,8 +38,8 @@ export const renderOfModelsSelected = (
   profil: ProfilDto,
   trainings?: TrainingDto[],
   experiences?: ExperienceDto[],
-  skill?: SkillsDto,
-  language?: LanguageDto
+  skill?: SkillsDto[],
+  language?: LanguageDto[]
 ) => {
   switch (selected) {
     case 0:

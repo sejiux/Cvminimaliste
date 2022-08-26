@@ -8,10 +8,10 @@ import { ID } from '@datorama/akita';
 
 export interface ModelsModel {
   id: ID;
-  profil: ProfilDto;
+  profil?: ProfilDto;
   trainings?: TrainingDto[];
   experiences?: ExperienceDto[];
-  skill?: SkillsDto;
-  language?: LanguageDto;
+  skill?: SkillsDto[];
+  language?: LanguageDto[];
   style?: StyleDto;
 }

@@ -10,7 +10,6 @@ import {
   MdOutlineAccountCircle,
   MdWorkOutline,
   MdOutlineManageAccounts,
-  MdWorkspacesOutline,
   MdOutlineMoreHoriz,
 } from 'react-icons/md';
 
@@ -39,11 +38,6 @@ export const sidebarData = [
   },
   {
     index: 4,
-    icon: <MdWorkspacesOutline className={classes} />,
-    name: `Compétences`,
-  },
-  {
-    index: 5,
     icon: <MdOutlineMoreHoriz className={classes} />,
     name: `Plus`,
   },
@@ -60,8 +54,6 @@ export const renderOfButtonSelected = (selected: number) => {
     case 3:
       return <Experiences />;
     case 4:
-      return <Skills />;
-    case 5:
       return <More />;
     default:
       return <Models />;

@@ -6,7 +6,7 @@ import { modelsQuery } from '@store/models';
 
 const Trainings = () => {
   const [trainings, setTrainings] = useState<TrainingDto[] | undefined>(undefined);
-  const [count, setCount] = useState<number>(2);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const _trainings = modelsQuery.trainings$.subscribe(setTrainings);
@@ -28,8 +28,11 @@ const Trainings = () => {
         onClick={() => {
           setCount(count + 1), setTrainings([...trainings!, { id: count }]);
         }}
-        disabled={count > 3 ? true : false}
-        className="mx-14 mt-5 text-sm border-2 border-[#303030] py-2 px-4 rounded-md font-normal text-[#303030] flex items-center hover:border-gray-[#303030] disabled:gray-200 disabled:border-gray-200 disabled:text-gray-200"
+        className={`${
+          count > 2
+            ? 'hidden'
+            : 'mx-auto mt-5 text-sm border-2 border-[#303030] py-2 px-4 rounded-md font-normal text-[#303030] flex items-center hover:border-gray-[#303030] disabled:gray-200 disabled:border-gray-200 disabled:text-gray-200'
+        }`}
       >
         <MdOutlineAddBox className="text-[#303030] mr-2 text-lg" />
         Ajouter une formation

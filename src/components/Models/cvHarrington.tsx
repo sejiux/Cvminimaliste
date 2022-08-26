@@ -10,13 +10,15 @@ import { TrainingDto } from '@api/dto/trainingDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { SkillsDto } from '@api/dto/skillsDto';
 import { LanguageDto } from '@api/dto/languageDto';
+import { ListDto } from '@api/dto/listDto';
 
 interface CVHarringtonProps {
   profil?: ProfilDto;
   trainings?: TrainingDto[];
   experiences?: ExperienceDto[];
-  skill?: SkillsDto;
-  language?: LanguageDto;
+  lists?: ListDto[];
+  skill?: SkillsDto[];
+  language?: LanguageDto[];
 }
 
 const CvHarrington: FC<CVHarringtonProps> = (props) => {
@@ -31,50 +33,56 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
             <DescriptionContact key={index} icon={data.icon} description={data.description!} />
           ))}
         </div>
-        <div className="space-y-4 mt-10">
-          <div className="space-y-1">
-            <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
-            <div className="space-y-2">
-              <div className="w-10 h-[0.3px] bg-white absolute left-0" />
-              <div className="space-y-3 pt-3">
-                {trainings?.map((data, index) => (
-                  <DescriptionFormations
-                    key={index}
-                    level={data.level!}
-                    schoolName={data.schoolName!}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-1">
-            <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
-            <div className="space-y-2">
-              <div className="w-10 h-[0.3px] bg-white absolute left-0" />
-              <div className="space-y-3 pt-3">
-                <ul className="text-[7px] space-y-1">
-                  {skill?.list?.map((data, index) => (
-                    <DescriptionLists key={index} title={data.title} />
+        <div className="space-y-4 mt-7">
+          {trainings?.length! > 0 && (
+            <div className="space-y-1">
+              <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+              <div className="space-y-2">
+                <div className="w-10 h-[0.3px] bg-white absolute left-0" />
+                <div className="space-y-3 pt-3">
+                  {trainings?.map((data, index) => (
+                    <DescriptionFormations
+                      key={index}
+                      level={data.level!}
+                      schoolName={data.schoolName!}
+                    />
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
-          <div className="space-y-1">
-            <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
-            <div className="space-y-2">
-              <div className="w-10 h-[0.3px] bg-white absolute left-0" />
-              <div className="space-y-3 pt-3">
-                <ul className="text-[7px] space-y-1">
-                  {language?.list?.map((data, index) => (
-                    <DescriptionLists key={index} title={data.title} />
-                  ))}
-                </ul>
+          {skill?.length! > 0 && (
+            <div className="space-y-1">
+              <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+              <div className="space-y-2">
+                <div className="w-10 h-[0.3px] bg-white absolute left-0" />
+                <div className="space-y-3 pt-3">
+                  <ul className="text-[7px] space-y-1">
+                    {skill?.map((data, index) => (
+                      <DescriptionLists key={index} title={data.description} />
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          )}
+
+          {language?.length! > 0 && (
+            <div className="space-y-1">
+              <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+              <div className="space-y-2">
+                <div className="w-10 h-[0.3px] bg-white absolute left-0" />
+                <div className="space-y-3 pt-3">
+                  <ul className="text-[7px] space-y-1">
+                    {language?.map((data, index) => (
+                      <DescriptionLists key={index} title={data.description} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
 
@@ -102,26 +110,29 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
           </div>
 
           <div className="space-y-4">
-            <div className="space-y-4">
-              <div className="w-full space-y-2">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
-                <div className="w-full py-[0.3px] bg-[#303030]" />
-                <div className="space-y-3">
-                  {experiences?.map((data, index) => (
-                    <DescriptionXp
-                      key={index}
-                      title={data.title}
-                      companyName={data.companyName}
-                      description={data.jobDescription}
-                    >
-                      {data.list?.map((data, index) => (
-                        <DescriptionLists key={index} title={data.title} />
-                      ))}
-                    </DescriptionXp>
-                  ))}
+            {experiences?.length! > 0 && (
+              <div className="space-y-4">
+                <div className="w-full space-y-2">
+                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                  <div className="w-full py-[0.3px] bg-[#303030]" />
+                  <div className="space-y-3">
+                    {experiences?.map((data, index) => (
+                      <DescriptionXp
+                        key={index}
+                        title={data.title}
+                        companyName={data.companyName}
+                        description={data.jobDescription}
+                      >
+                        {data.lists &&
+                          data.lists?.map((data, index) => (
+                            <DescriptionLists key={index} title={data.description} />
+                          ))}
+                      </DescriptionXp>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
       </div>

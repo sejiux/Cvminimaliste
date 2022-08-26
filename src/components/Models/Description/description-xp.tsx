@@ -17,10 +17,10 @@ const DescriptionXp: FC<DescriptionXpProps> = (props) => {
         <h5 className="uppercase text-[9px] font-normal">{title}</h5>
         <h6 className="text-[8px] font-thin">{companyName} | Date</h6>
       </div>
-      <p className="text-[7px]">
+      <div className="text-[7px]">
         {description}
         <ul className="list-disc mt-0.5">{children}</ul>
-      </p>
+      </div>
     </div>
   );
 };

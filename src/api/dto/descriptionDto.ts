@@ -1,6 +1,6 @@
 import { ID } from '@datorama/akita';
 
 export interface DescriptionDto {
-  id: ID;
+  id: number;
   description?: string;
 }

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = 'https://cvminimaliste.com',

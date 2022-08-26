@@ -1,13 +1,7 @@
 import React from 'react';
 import { ProfilDto } from '@api/dto/profilDto';
 import { RiMapPin2Fill, RiPhoneFill, RiMailFill, RiLinkedinBoxFill } from 'react-icons/ri';
-import {
-  profilInital,
-  trainingInital,
-  experienceInital,
-  skillsInital,
-  languageInitial,
-} from './initialValue.utils';
+import { profilInital } from './initialValue.utils';
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { TrainingDto } from '@api/dto/trainingDto';
 
@@ -89,38 +83,66 @@ export const formsProfilTwoCols = (profil: ProfilDto) => [
   ],
 ];
 
-export const formsTrainingsOneCols = (trainings: TrainingDto, index: number) => [
-  {
-    label: `Nom de l'établissement`,
-    type: 'text',
-    name: 'schoolName',
-    value: trainings?.schoolName,
-    initial: trainingInital.find((state) => state.id === index)?.schoolName,
-  },
+export const formsTrainingsOneCols = (trainings: TrainingDto) => [
   {
     label: 'Niveau',
     type: 'text',
     name: 'level',
     value: trainings?.level,
-    initial: trainingInital.find((state) => state.id === index)?.level,
+  },
+  {
+    label: `Nom de l'établissement`,
+    type: 'text',
+    name: 'schoolName',
+    value: trainings?.schoolName,
   },
 ];
 
-export const formsTrainingsTwoCols = (trainings: TrainingDto, index: number) => [
+export const formsTrainingsTwoCols = (trainings: TrainingDto) => [
   [
     {
       label: `Date de début`,
       type: 'date',
       name: 'from',
       value: trainings?.from,
-      initial: trainingInital.find((state) => state.id === index)?.from,
     },
     {
       label: 'Date de fin',
       type: 'date',
       name: 'to',
       value: trainings?.to,
-      initial: trainingInital.find((state) => state.id === index)?.to,
+    },
+  ],
+];
+
+export const formsExperiencesOneCols = (experiences: ExperienceDto) => [
+  {
+    label: 'Titre du poste',
+    type: 'text',
+    name: 'title',
+    value: experiences?.title,
+  },
+  {
+    label: `Nom de l'entreprise`,
+    type: 'text',
+    name: 'companyName',
+    value: experiences?.companyName,
+  },
+];
+
+export const formsExperiencesTwoCols = (experiences: ExperienceDto) => [
+  [
+    {
+      label: `Date de début`,
+      type: 'date',
+      name: 'from',
+      value: experiences?.from,
+    },
+    {
+      label: 'Date de fin',
+      type: 'date',
+      name: 'to',
+      value: experiences?.to,
     },
   ],
 ];

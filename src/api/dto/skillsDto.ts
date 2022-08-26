@@ -3,5 +3,5 @@ import { ListDto } from './listDto';
 
 export interface SkillsDto {
   id: ID;
-  list?: ListDto[];
+  description: string;
 }

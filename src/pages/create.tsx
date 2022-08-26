@@ -11,7 +11,7 @@ import { LanguageDto } from '@api/dto/languageDto';
 import { Link } from 'gatsby';
 import { ID } from '@datorama/akita';
 import Sidebar from '@components/Sidebar';
-import { env } from 'process';
+import { ListDto } from '@api/dto/listDto';
 
 const Create = () => {
   const [selected, setSelected] = useState(0);
