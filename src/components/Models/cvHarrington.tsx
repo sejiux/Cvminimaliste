@@ -36,7 +36,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
         <div className="space-y-4 mt-7">
           {trainings?.length! > 0 && (
             <div className="space-y-1">
-              <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+              <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
               <div className="space-y-2">
                 <div className="w-10 h-[0.3px] bg-white absolute left-0" />
                 <div className="space-y-3 pt-3">
@@ -54,7 +54,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
 
           {skill?.length! > 0 && (
             <div className="space-y-1">
-              <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+              <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
               <div className="space-y-2">
                 <div className="w-10 h-[0.3px] bg-white absolute left-0" />
                 <div className="space-y-3 pt-3">
@@ -70,7 +70,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
 
           {language?.length! > 0 && (
             <div className="space-y-1">
-              <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+              <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
               <div className="space-y-2">
                 <div className="w-10 h-[0.3px] bg-white absolute left-0" />
                 <div className="space-y-3 pt-3">
@@ -102,7 +102,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
           <div className="space-y-4">
             <div className="space-y-4">
               <div className="w-full space-y-2">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Profil</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
                 <div className="w-full py-[0.3px] bg-[#303030]" />
                 <DescriptionProfil description={profil?.about} />
               </div>
@@ -113,7 +113,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
             {experiences?.length! > 0 && (
               <div className="space-y-4">
                 <div className="w-full space-y-2">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                   <div className="w-full py-[0.3px] bg-[#303030]" />
                   <div className="space-y-3">
                     {experiences?.map((data, index) => (

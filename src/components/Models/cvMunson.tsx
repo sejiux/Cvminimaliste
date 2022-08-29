@@ -38,7 +38,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
           <div className="space-y-4">
             {trainings?.length! > 0 && (
               <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
                 <div className="w-5 h-[0.3px] bg-white" />
                 <div className="space-y-3 pt-2">
                   {trainings?.map((data, index) => (
@@ -54,7 +54,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
 
             {skill?.length! > 0 && (
               <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                 <div className="w-5 h-[0.3px] bg-white" />
                 <div className="space-y-3 pt-2">
                   <ul className="text-[7px] space-y-1">
@@ -68,7 +68,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
 
             {language?.length! > 0 && (
               <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                 <div className="w-5 h-[0.3px] bg-white" />
                 <div className="space-y-3 pt-2">
                   <ul className="text-[7px] space-y-1">
@@ -100,7 +100,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
           <div className="space-y-4">
             <div className="space-y-4">
               <div className="w-full space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Profil</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
                 <div className="w-5 h-[0.3px] bg-[#303030]" />
                 <div className="pt-1">
                   <DescriptionProfil description={profil?.about} />
@@ -113,7 +113,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
             {experiences?.length! > 0 && (
               <div className="space-y-4">
                 <div className="w-full space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                   <div className="w-5 h-[0.3px] bg-[#303030]" />
                   <div className="space-y-3 pt-1">
                     {experiences?.map((data, index) => (

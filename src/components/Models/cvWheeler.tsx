@@ -54,7 +54,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
             <div className="flex flex-col space-y-4 w-64">
               {experiences?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                   <div className="space-y-3">
                     {experiences?.map((data, index) => (
                       <DescriptionXp
@@ -65,7 +65,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
                       >
                         {data.lists &&
                           data.lists?.map((data, index) => (
-                            <DescriptionLists key={index} title={data.description} />
+                            <DescriptionLists key={index} title={data?.description} />
                           ))}
                       </DescriptionXp>
                     ))}
@@ -75,7 +75,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
 
               {language?.length! > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <ul className="text-[7px] space-y-1">
                     {language?.map((data, index) => (
                       <DescriptionLists key={index} title={data.description} />
@@ -87,13 +87,13 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
 
             <div className="flex flex-col space-y-4 w-36">
               <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Profil</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
                 <DescriptionProfil description={profil?.about} />
               </div>
 
               {trainings?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
                   <div className="space-y-3">
                     {trainings?.map((data, index) => (
                       <DescriptionFormations
@@ -108,7 +108,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
 
               {skill?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                   <ul className="text-[7px] space-y-1">
                     {skill?.map((data, index) => (
                       <DescriptionLists key={index} title={data.description} />
@@ -119,7 +119,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
 
               {language?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <ul className="text-[7px] space-y-1">
                     {language?.map((data, index) => (
                       <DescriptionLists key={index} title={data.description} />

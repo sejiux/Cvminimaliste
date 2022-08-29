@@ -52,7 +52,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
       <section className="px-6 py-5">
         <div className="space-y-4">
           <div className="w-full space-y-1">
-            <h3 className="text-[11px] font-PoppinsRegular uppercase">Profil</h3>
+            <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
             <div className="flex space-x-2">
               <div className="h-auto px-[0.3px] bg-[#303030]" />
               <DescriptionProfil description={profil?.about} />
@@ -62,7 +62,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
           <div className="flex space-x-6">
             {experiences?.length! > 0 && (
               <div className="w-64 space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular uppercase">Expériences</h3>
+                <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                 <div className="flex space-x-2">
                   <div className="h-auto px-[0.3px] bg-[#303030]" />
                   <div className="space-y-3">
@@ -87,7 +87,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
             <div className="flex flex-col space-y-4 w-36">
               {trainings?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Formations</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
                   <div className="flex space-x-2">
                     <div className="h-auto px-[0.3px] bg-[#303030]" />
                     <div className="space-y-3">
@@ -105,7 +105,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
 
               {skill?.length! > 0 && (
                 <div className="space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Compétences</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                   <div className="flex space-x-2">
                     <div className="h-auto px-[0.3px] bg-[#303030]" />
                     <ul className="text-[7px] space-y-1">
@@ -119,7 +119,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
 
               {language?.length! > 0 && (
                 <div className="space-y-1 col-span-1">
-                  <h3 className="text-[11px] font-PoppinsRegular uppercase">Langues</h3>
+                  <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <div className="flex space-x-2">
                     <div className="h-auto px-[0.3px] bg-[#303030]" />
                     <ul className="text-[7px] space-y-1">

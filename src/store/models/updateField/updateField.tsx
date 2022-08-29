@@ -36,33 +36,42 @@ export const updateTrainingField =
   };
 
 export const updateExperienceField =
+  (name: string, experiences: ExperienceDto[] | undefined, indexXp: ID) => (evt: any) => {
+    var newExperiences = experiences?.map((data, idx) => {
+      if (idx !== indexXp) {
+        return data;
+      }
+      return { ...data, id: idx, [name]: evt.target.value };
+    });
+    updateExperiences(newExperiences!);
+  };
+
+export const updateListField =
   (
     name: string,
     experiences: ExperienceDto[] | undefined,
-    indexXp: ID,
-    indexLists?: number,
-    lists?: ListDto[],
-    list?: ListDto
+    indexXp: number,
+    lists: ListDto[],
+    indexLists: number
   ) =>
   (evt: any) => {
-    var newExperiences =
-      name !== 'description'
-        ? experiences?.map((data, idx) => {
-            if (idx !== indexXp) {
-              return data;
-            }
-            return { ...data, id: idx, [name]: evt.target.value };
-          })
-        : experiences?.map((data, idx) => {
-            if (idx !== indexXp) {
-              return data;
-            }
-            return {
-              ...data,
-              id: idx,
-              lists: [...lists!, { id: list?.id, [name]: evt.target.value }],
-            };
-          });
-    console.log(newExperiences);
+    var newList = lists?.map((dataList, id) => {
+      if (indexLists !== id) {
+        return dataList;
+      }
+      return { ...dataList, id: id, [name]: evt.target.value };
+    });
+
+    var newExperiences = experiences?.map((data, idx) => {
+      if (idx !== indexXp) {
+        return data;
+      }
+      return {
+        ...data,
+        id: indexXp,
+        lists: newList,
+      };
+    });
+    console.log('newList', newExperiences);
     updateExperiences(newExperiences!);
   };

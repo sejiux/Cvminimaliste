@@ -1,7 +1,7 @@
 import { formsExperiencesOneCols, formsExperiencesTwoCols } from '@utils/data/forms.utils';
 import React, { FC, useState } from 'react';
 import { ExperienceDto } from '@api/dto/experienceDto';
-import { updateExperienceField } from '@store/models/updateField/updateField';
+import { updateExperienceField, updateListField } from '@store/models/updateField/updateField';
 import { ListDto } from '@api/dto/listDto';
 import { MdOutlineAddBox } from 'react-icons/md';
 
@@ -74,7 +74,7 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
         ></textarea>
       </div>
 
-      {lists?.map((list, listId) => (
+      {lists?.map((_, listId) => (
         <div key={listId} className="mb-6">
           <label htmlFor="description" className="block mb-2 text-sm font-light">
             Detail du poste (Liste à puce)
@@ -83,15 +83,8 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
             type="text"
             id="description"
             className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-            onChange={updateExperienceField(
-              'description',
-              experiences,
-              experienceId,
-              listCount?.[experienceId],
-              lists,
-              list
-            )}
-            value={list?.description}
+            onChange={updateListField('description', experiences, experienceId, lists, listId)}
+            value={experience.lists?.[listId]?.description}
           ></input>
         </div>
       ))}
@@ -100,9 +93,14 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
       <button
         onClick={(evt) => {
           evt.preventDefault();
-          handleListCount();
           setAddList(addList + 1);
-          setLists([...lists!, { id: listCount?.[experienceId] }]);
+          setLists([
+            ...experience?.lists!,
+            {
+              id: listCount?.[experienceId],
+            },
+          ]);
+          handleListCount();
         }}
         className={`${
           addList > 2

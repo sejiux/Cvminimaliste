@@ -15,7 +15,7 @@ const Experiences = () => {
     };
   }, []);
 
-  console.log(experiences);
+  console.log('experiences:', experiences);
   return (
     <div className="px-14 py-10 text-[#303030] h-screen overflow-x-hidden">
       <div className="space-y-2 pb-5">
