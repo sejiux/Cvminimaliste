@@ -34,3 +34,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  list-style: disc;
+}
+
+ul li {
+  margin-left: 7px;
+}

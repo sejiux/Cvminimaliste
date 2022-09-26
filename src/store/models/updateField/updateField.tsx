@@ -1,9 +1,8 @@
+import React from 'react';
 import { ProfilDto } from '@api/dto/profilDto';
-import React, { useState, useEffect } from 'react';
 import { modelsService } from '@store/models';
 import { TrainingDto } from '@api/dto/trainingDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
-import { ListDto } from '@api/dto/listDto';
 import { ID } from '@datorama/akita';
 
 const updateProfil = (newValue: ProfilDto) => {
@@ -46,32 +45,18 @@ export const updateExperienceField =
     updateExperiences(newExperiences!);
   };
 
-export const updateListField =
-  (
-    name: string,
-    experiences: ExperienceDto[] | undefined,
-    indexXp: number,
-    lists: ListDto[],
-    indexLists: number
-  ) =>
-  (evt: any) => {
-    var newList = lists?.map((dataList, id) => {
-      if (indexLists !== id) {
-        return dataList;
-      }
-      return { ...dataList, id: id, [name]: evt.target.value };
-    });
-
+export const updateEditorExperienceField =
+  (name: string, experiences: ExperienceDto[] | undefined, indexXp: ID) =>
+  (evt: any, editor?: any) => {
+    const test = Array.from(editor.ui.componentFactory.names());
+    console.log(test);
+    const editorData: string = editor?.getData();
     var newExperiences = experiences?.map((data, idx) => {
       if (idx !== indexXp) {
         return data;
       }
-      return {
-        ...data,
-        id: indexXp,
-        lists: newList,
-      };
+      return { ...data, id: idx, [name]: editorData };
     });
-    console.log('newList', newExperiences);
+
     updateExperiences(newExperiences!);
   };

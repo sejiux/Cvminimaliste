@@ -38,7 +38,6 @@ const Experiences = () => {
             ...experiences!,
             {
               id: count,
-              lists: [],
             },
           ]);
         }}

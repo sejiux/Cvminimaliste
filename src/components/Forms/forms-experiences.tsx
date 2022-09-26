@@ -1,9 +1,11 @@
 import { formsExperiencesOneCols, formsExperiencesTwoCols } from '@utils/data/forms.utils';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { ExperienceDto } from '@api/dto/experienceDto';
-import { updateExperienceField, updateListField } from '@store/models/updateField/updateField';
-import { ListDto } from '@api/dto/listDto';
-import { MdOutlineAddBox } from 'react-icons/md';
+import {
+  updateEditorExperienceField,
+  updateExperienceField,
+} from '@store/models/updateField/updateField';
+import EditorForm from '@components/EditorForm';
 
 interface FormsExperiencesProps {
   experiences: ExperienceDto[];
@@ -12,15 +14,6 @@ interface FormsExperiencesProps {
 }
 const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
   const { experiences, experience, experienceId } = props;
-  const [listCount, setListCount] = useState<number[]>([0, 0, 0]);
-  const [lists, setLists] = useState<ListDto[] | undefined>([]);
-  const [addList, setAddList] = useState(0);
-
-  const handleListCount = () => {
-    var count = listCount;
-    count[experienceId]++;
-    setListCount(count);
-  };
 
   return (
     <form className="mt-5">
@@ -65,52 +58,12 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
         <label htmlFor="about" className="block mb-2 text-sm font-light">
           Description du poste
         </label>
-        <textarea
-          rows={6}
-          id="about"
-          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-          onChange={updateExperienceField('jobDescription', experiences, experienceId!)}
-          value={experience?.jobDescription}
-        ></textarea>
+        <EditorForm
+          handleChange={updateEditorExperienceField('jobDescription', experiences, experienceId!)}
+          addData={experience?.jobDescription!}
+        />
       </div>
 
-      {lists?.map((_, listId) => (
-        <div key={listId} className="mb-6">
-          <label htmlFor="description" className="block mb-2 text-sm font-light">
-            Detail du poste (Liste à puce)
-          </label>
-          <input
-            type="text"
-            id="description"
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-sm focus:ring-[#24445c] focus:border-[#24445c] block w-full p-2.5"
-            onChange={updateListField('description', experiences, experienceId, lists, listId)}
-            value={experience.lists?.[listId]?.description}
-          ></input>
-        </div>
-      ))}
-
-      <hr />
-      <button
-        onClick={(evt) => {
-          evt.preventDefault();
-          setAddList(addList + 1);
-          setLists([
-            ...experience?.lists!,
-            {
-              id: listCount?.[experienceId],
-            },
-          ]);
-          handleListCount();
-        }}
-        className={`${
-          addList > 2
-            ? 'hidden'
-            : 'mx-auto my-5 text-sm border-2 border-[#303030] py-2 px-4 rounded-md font-normal text-[#303030] flex items-center hover:border-gray-[#303030] disabled:gray-200 disabled:border-gray-200 disabled:text-gray-200'
-        }`}
-      >
-        <MdOutlineAddBox className="text-[#303030] mr-2 text-lg" />
-        Ajouter une liste
-      </button>
       <hr />
       <br />
     </form>

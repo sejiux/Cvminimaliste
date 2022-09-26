@@ -3,7 +3,6 @@ import { ID } from '@datorama/akita';
 import { ProfilDto } from '@api/dto/profilDto';
 import { TrainingDto } from '@api/dto/trainingDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
-import { ListDto } from '@api/dto/listDto';
 
 export class ModelsService {
   constructor(private store: ModelsStore) {}

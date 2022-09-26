@@ -10,13 +10,11 @@ import { TrainingDto } from '@api/dto/trainingDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { SkillsDto } from '@api/dto/skillsDto';
 import { LanguageDto } from '@api/dto/languageDto';
-import { ListDto } from '@api/dto/listDto';
 
 interface CVHarringtonProps {
   profil?: ProfilDto;
   trainings?: TrainingDto[];
   experiences?: ExperienceDto[];
-  lists?: ListDto[];
   skill?: SkillsDto[];
   language?: LanguageDto[];
 }
@@ -121,13 +119,8 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
                         key={index}
                         title={data.title}
                         companyName={data.companyName}
-                        description={data.jobDescription}
-                      >
-                        {data.lists &&
-                          data.lists?.map((data, index) => (
-                            <DescriptionLists key={index} title={data.description} />
-                          ))}
-                      </DescriptionXp>
+                        description={data?.jobDescription}
+                      />
                     ))}
                   </div>
                 </div>

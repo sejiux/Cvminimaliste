@@ -19,9 +19,9 @@ const Sidebar: FC<SidebarProps> = (props) => {
   return (
     <aside className="relative w-20 h-screen" aria-label="Sidebar">
       <div className="h-screen w-auto bg-gray-100">
-        <ul className="w-full">
+        <ul className="w-full list-none">
           {sidebarData.map((data, index) => (
-            <li key={index}>
+            <li key={index} className="list-none ml-[0px]">
               <button
                 type="button"
                 className={`${

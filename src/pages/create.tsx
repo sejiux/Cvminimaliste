@@ -11,7 +11,6 @@ import { LanguageDto } from '@api/dto/languageDto';
 import { Link } from 'gatsby';
 import { ID } from '@datorama/akita';
 import Sidebar from '@components/Sidebar';
-import { ListDto } from '@api/dto/listDto';
 
 const Create = () => {
   const [selected, setSelected] = useState(0);
@@ -21,8 +20,8 @@ const Create = () => {
   const [profil, setProfil] = useState<ProfilDto | undefined>(undefined);
   const [trainings, setTrainings] = useState<TrainingDto[] | undefined>(undefined);
   const [experiences, setExperiences] = useState<ExperienceDto[] | undefined>(undefined);
-  const [skill, setSkill] = useState<SkillsDto | undefined>(undefined);
-  const [language, setLanguage] = useState<LanguageDto | undefined>(undefined);
+  const [skill, setSkill] = useState<SkillsDto[] | undefined>(undefined);
+  const [language, setLanguage] = useState<LanguageDto[] | undefined>(undefined);
 
   useEffect(() => {
     const _modelsSelected = modelsQuery.modelIdSelected$.subscribe(setModelsSelected);

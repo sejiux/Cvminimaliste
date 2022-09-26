@@ -11,13 +11,11 @@ import { TrainingDto } from '@api/dto/trainingDto';
 import { SkillsDto } from '@api/dto/skillsDto';
 import { ExperienceDto } from '@api/dto/experienceDto';
 import { LanguageDto } from '@api/dto/languageDto';
-import { ListDto } from '@api/dto/listDto';
 
 interface CVHendersonProps {
   profil?: ProfilDto;
   trainings?: TrainingDto[];
   experiences?: ExperienceDto[];
-  lists?: ListDto[];
   skill?: SkillsDto[];
   language?: LanguageDto[];
 }
@@ -72,12 +70,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                         title={data.title}
                         companyName={data.companyName}
                         description={data.jobDescription}
-                      >
-                        {data.lists &&
-                          data.lists?.map((data, index) => (
-                            <DescriptionLists key={index} title={data.description} />
-                          ))}
-                      </DescriptionXp>
+                      />
                     ))}
                   </div>
                 </div>

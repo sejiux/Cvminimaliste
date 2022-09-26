@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import parse from 'html-react-parser';
 
 interface DescriptionXpProps {
   children?: React.ReactNode;
@@ -17,10 +18,7 @@ const DescriptionXp: FC<DescriptionXpProps> = (props) => {
         <h5 className="uppercase text-[9px] font-normal">{title}</h5>
         <h6 className="text-[8px] font-thin">{companyName} | Date</h6>
       </div>
-      <div className="text-[7px]">
-        {description}
-        <ul className="list-disc mt-0.5">{children}</ul>
-      </div>
+      <div className="text-[7px]">{description ? parse(description) : ''}</div>
     </div>
   );
 };
