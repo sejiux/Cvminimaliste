@@ -2,8 +2,8 @@ import React from 'react';
 import { ProfilDto } from '@api/dto/profilDto';
 import { RiMapPin2Fill, RiPhoneFill, RiMailFill, RiLinkedinBoxFill } from 'react-icons/ri';
 import { profilInital } from './initialValue.utils';
-import { ExperienceDto } from '@api/dto/experienceDto';
-import { TrainingDto } from '@api/dto/trainingDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
 
 export const contactData = (profil: ProfilDto) => [
   {
@@ -83,7 +83,7 @@ export const formsProfilTwoCols = (profil: ProfilDto) => [
   ],
 ];
 
-export const formsTrainingsOneCols = (trainings: TrainingDto) => [
+export const formsTrainingsOneCols = (trainings: TrainingsDto) => [
   {
     label: 'Niveau',
     type: 'text',
@@ -98,7 +98,7 @@ export const formsTrainingsOneCols = (trainings: TrainingDto) => [
   },
 ];
 
-export const formsTrainingsTwoCols = (trainings: TrainingDto) => [
+export const formsTrainingsTwoCols = (trainings: TrainingsDto) => [
   [
     {
       label: `Date de début`,
@@ -115,7 +115,7 @@ export const formsTrainingsTwoCols = (trainings: TrainingDto) => [
   ],
 ];
 
-export const formsExperiencesOneCols = (experiences: ExperienceDto) => [
+export const formsExperiencesOneCols = (experiences: ExperiencesDto) => [
   {
     label: 'Titre du poste',
     type: 'text',
@@ -130,7 +130,7 @@ export const formsExperiencesOneCols = (experiences: ExperienceDto) => [
   },
 ];
 
-export const formsExperiencesTwoCols = (experiences: ExperienceDto) => [
+export const formsExperiencesTwoCols = (experiences: ExperiencesDto) => [
   [
     {
       label: `Date de début`,

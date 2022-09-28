@@ -1,4 +1,4 @@
-export interface ExperienceDto {
+export interface ExperiencesDto {
   id?: number;
   title?: string;
   companyName?: string;

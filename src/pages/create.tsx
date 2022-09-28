@@ -4,9 +4,9 @@ import { renderOfModelsSelected } from '@utils/data/models.utils';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { modelsQuery } from '@store/models';
 import { ProfilDto } from '@api/dto/profilDto';
-import { TrainingDto } from '@api/dto/trainingDto';
-import { ExperienceDto } from '@api/dto/experienceDto';
-import { SkillsDto } from '@api/dto/skillsDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
+import { SkillDto } from '@api/dto/skillDto';
 import { LanguageDto } from '@api/dto/languageDto';
 import { Link } from 'gatsby';
 import { ID } from '@datorama/akita';
@@ -18,10 +18,10 @@ const Create = () => {
   const [isSelected, setIsSelected] = useState(true);
   const [modelsSelected, setModelsSelected] = useState<ID | undefined>(0);
   const [profil, setProfil] = useState<ProfilDto | undefined>(undefined);
-  const [trainings, setTrainings] = useState<TrainingDto[] | undefined>(undefined);
-  const [experiences, setExperiences] = useState<ExperienceDto[] | undefined>(undefined);
-  const [skill, setSkill] = useState<SkillsDto[] | undefined>(undefined);
-  const [language, setLanguage] = useState<LanguageDto[] | undefined>(undefined);
+  const [trainings, setTrainings] = useState<TrainingsDto[] | undefined>(undefined);
+  const [experiences, setExperiences] = useState<ExperiencesDto[] | undefined>(undefined);
+  const [skill, setSkill] = useState<SkillDto | undefined>(undefined);
+  const [language, setLanguage] = useState<LanguageDto | undefined>(undefined);
 
   useEffect(() => {
     const _modelsSelected = modelsQuery.modelIdSelected$.subscribe(setModelsSelected);

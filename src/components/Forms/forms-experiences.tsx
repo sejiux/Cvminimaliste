@@ -1,6 +1,6 @@
 import { formsExperiencesOneCols, formsExperiencesTwoCols } from '@utils/data/forms.utils';
 import React, { FC } from 'react';
-import { ExperienceDto } from '@api/dto/experienceDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
 import {
   updateEditorExperienceField,
   updateExperienceField,
@@ -8,8 +8,8 @@ import {
 import EditorForm from '@components/EditorForm';
 
 interface FormsExperiencesProps {
-  experiences: ExperienceDto[];
-  experience: ExperienceDto;
+  experiences: ExperiencesDto[];
+  experience: ExperiencesDto;
   experienceId: number;
 }
 const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
@@ -55,7 +55,7 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
       ))}
 
       <div className="mb-6">
-        <label htmlFor="about" className="block mb-2 text-sm font-light">
+        <label htmlFor="jobDescription" className="block mb-2 text-sm font-light">
           Description du poste
         </label>
         <EditorForm

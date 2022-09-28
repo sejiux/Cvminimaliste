@@ -1,20 +1,30 @@
 import React from 'react';
 import { ProfilDto } from '@api/dto/profilDto';
 import { modelsService } from '@store/models';
-import { TrainingDto } from '@api/dto/trainingDto';
-import { ExperienceDto } from '@api/dto/experienceDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
 import { ID } from '@datorama/akita';
+import { SkillDto } from '@api/dto/skillDto';
+import { LanguageDto } from '@api/dto/languageDto';
 
 const updateProfil = (newValue: ProfilDto) => {
   modelsService.addProfil(newValue);
 };
 
-const updateTrainings = (newValue: TrainingDto[]) => {
+const updateTrainings = (newValue: TrainingsDto[]) => {
   modelsService.addTrainings(newValue);
 };
 
-const updateExperiences = (newValue: ExperienceDto[]) => {
+const updateExperiences = (newValue: ExperiencesDto[]) => {
   modelsService.addExperiences(newValue);
+};
+
+const updateSkill = (newValue: SkillDto) => {
+  modelsService.addSkills(newValue);
+};
+
+const updateLanguage = (newValue: LanguageDto) => {
+  modelsService.addLanguage(newValue);
 };
 
 export const updateProfilField = (name: string, profil: ProfilDto | undefined) => (evt: any) => {
@@ -24,7 +34,7 @@ export const updateProfilField = (name: string, profil: ProfilDto | undefined) =
 };
 
 export const updateTrainingField =
-  (name: string, trainings: TrainingDto[] | undefined, index: ID) => (evt: any) => {
+  (name: string, trainings: TrainingsDto[] | undefined, index: ID) => (evt: any) => {
     var newTrainings = trainings?.map((data, idx) => {
       if (idx !== index) {
         return data;
@@ -35,7 +45,7 @@ export const updateTrainingField =
   };
 
 export const updateExperienceField =
-  (name: string, experiences: ExperienceDto[] | undefined, indexXp: ID) => (evt: any) => {
+  (name: string, experiences: ExperiencesDto[] | undefined, indexXp: ID) => (evt: any) => {
     var newExperiences = experiences?.map((data, idx) => {
       if (idx !== indexXp) {
         return data;
@@ -46,8 +56,8 @@ export const updateExperienceField =
   };
 
 export const updateEditorExperienceField =
-  (name: string, experiences: ExperienceDto[] | undefined, indexXp: ID) =>
-  (evt: any, editor?: any) => {
+  (name: string, experiences: ExperiencesDto[] | undefined, indexXp: ID) =>
+  (_: any, editor?: any) => {
     const test = Array.from(editor.ui.componentFactory.names());
     console.log(test);
     const editorData: string = editor?.getData();
@@ -59,4 +69,20 @@ export const updateEditorExperienceField =
     });
 
     updateExperiences(newExperiences!);
+  };
+
+export const updateEditorSkillField =
+  (name: string, skill: SkillDto | undefined) => (_: any, editor?: any) => {
+    const editorData: string = editor?.getData();
+    if (skill) {
+      updateSkill({ ...skill, [name]: editorData });
+    }
+  };
+
+export const updateEditorLanguageField =
+  (name: string, language: LanguageDto | undefined) => (_: any, editor?: any) => {
+    const editorData: string = editor?.getData();
+    if (language) {
+      updateLanguage({ ...language, [name]: editorData });
+    }
   };

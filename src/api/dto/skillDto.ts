@@ -1,6 +1,6 @@
 import { ID } from '@datorama/akita';
 
-export interface DescriptionDto {
-  id: number;
+export interface SkillDto {
+  id: ID;
   description?: string;
 }

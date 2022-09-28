@@ -1,8 +1,10 @@
 import { ModelsStore, modelsStore } from './models.store';
 import { ID } from '@datorama/akita';
 import { ProfilDto } from '@api/dto/profilDto';
-import { TrainingDto } from '@api/dto/trainingDto';
-import { ExperienceDto } from '@api/dto/experienceDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
+import { SkillDto } from '@api/dto/skillDto';
+import { LanguageDto } from '@api/dto/languageDto';
 
 export class ModelsService {
   constructor(private store: ModelsStore) {}
@@ -21,17 +23,31 @@ export class ModelsService {
     }));
   };
 
-  addTrainings = (value: TrainingDto[]) => {
+  addTrainings = (value: TrainingsDto[]) => {
     this.store.update((state) => ({
       ...state,
       trainings: value,
     }));
   };
 
-  addExperiences = (value: ExperienceDto[]) => {
+  addExperiences = (value: ExperiencesDto[]) => {
     this.store.update((state) => ({
       ...state,
       experiences: value,
+    }));
+  };
+
+  addSkills = (value: SkillDto) => {
+    this.store.update((state) => ({
+      ...state,
+      skill: value,
+    }));
+  };
+
+  addLanguage = (value: LanguageDto) => {
+    this.store.update((state) => ({
+      ...state,
+      language: value,
     }));
   };
 }

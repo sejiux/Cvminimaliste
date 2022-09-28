@@ -1,6 +1,6 @@
 import { ID } from '@datorama/akita';
 
-export interface TrainingDto {
+export interface TrainingsDto {
   id: ID;
   level?: string;
   from?: Date;

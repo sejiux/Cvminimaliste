@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { TrainingDto } from '@api/dto/trainingDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
 import { updateTrainingField } from '@store/models/updateField/updateField';
 import { formsTrainingsOneCols, formsTrainingsTwoCols } from '@utils/data/forms.utils';
 
 interface FormsTrainingsProps {
-  trainings: TrainingDto[];
-  training: TrainingDto;
+  trainings: TrainingsDto[];
+  training: TrainingsDto;
   trainingId: number;
 }
 

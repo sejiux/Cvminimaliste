@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import FormsExperiences from '@components/Forms/forms-experiences';
 import { MdOutlineAddBox } from 'react-icons/md';
-import { ExperienceDto } from '@api/dto/experienceDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
 import { modelsQuery } from '@store/models';
 
 const Experiences = () => {
-  const [experiences, setExperiences] = useState<ExperienceDto[] | undefined>([]);
+  const [experiences, setExperiences] = useState<ExperiencesDto[] | undefined>([]);
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {

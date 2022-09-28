@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import FormsTrainings from '@components/Forms/forms-trainings';
 import { MdOutlineAddBox } from 'react-icons/md';
-import { TrainingDto } from '@api/dto/trainingDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
 import { modelsQuery } from '@store/models';
 
 const Trainings = () => {
-  const [trainings, setTrainings] = useState<TrainingDto[] | undefined>(undefined);
+  const [trainings, setTrainings] = useState<TrainingsDto[] | undefined>(undefined);
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {

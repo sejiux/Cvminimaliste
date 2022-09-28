@@ -9,9 +9,9 @@ import CvHenderson from '@components/Models/cvHenderson';
 import CvHarrington from '@components/Models/cvHarrington';
 import CvMunson from '@components/Models/cvMunson';
 import { ProfilDto } from '@api/dto/profilDto';
-import { TrainingDto } from '@api/dto/trainingDto';
-import { ExperienceDto } from '@api/dto/experienceDto';
-import { SkillsDto } from '@api/dto/skillsDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
+import { ExperiencesDto } from '@api/dto/experiencesDto';
+import { SkillDto } from '@api/dto/skillDto';
 import { LanguageDto } from '@api/dto/languageDto';
 
 export const modelsData = [
@@ -36,10 +36,10 @@ export const modelsData = [
 export const renderOfModelsSelected = (
   selected: ID,
   profil: ProfilDto,
-  trainings?: TrainingDto[],
-  experiences?: ExperienceDto[],
-  skill?: SkillsDto[],
-  language?: LanguageDto[]
+  trainings?: TrainingsDto[],
+  experiences?: ExperiencesDto[],
+  skill?: SkillDto,
+  language?: LanguageDto
 ) => {
   switch (selected) {
     case 0:

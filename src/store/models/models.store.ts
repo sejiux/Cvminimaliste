@@ -7,8 +7,8 @@ const initialState: ModelsModel = {
   profil: profilInital,
   trainings: [],
   experiences: [],
-  skill: [],
-  language: [],
+  skill: undefined,
+  language: undefined,
 };
 
 @StoreConfig({ name: 'models', resettable: false })
