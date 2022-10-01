@@ -97,7 +97,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                 </div>
               )}
 
-              {skill && (
+              {skill?.id! !== undefined && (
                 <div className="space-y-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                   <div className="flex space-x-2">
@@ -107,7 +107,7 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                 </div>
               )}
 
-              {language && (
+              {language?.id! !== undefined && (
                 <div className="space-y-1 col-span-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <div className="flex space-x-2">

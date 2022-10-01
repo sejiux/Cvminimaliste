@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SkillDto } from '@api/dto/skillDto';
 import EditorForm from '@components/EditorForm';
-import { updateEditorSkillField } from '@store/models/updateField/updateField';
+import { updateEditorSkillField } from '@store/updateField/updateField';
 
 interface FormsSkillProps {
   skill: SkillDto;

@@ -51,7 +51,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
               </div>
             )}
 
-            {skill && (
+            {skill?.id! !== undefined && (
               <div className="space-y-1">
                 <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                 <div className="w-5 h-[0.3px] bg-white" />
@@ -61,7 +61,7 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
               </div>
             )}
 
-            {language && (
+            {language?.id! !== undefined && (
               <div className="space-y-1">
                 <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                 <div className="w-5 h-[0.3px] bg-white" />

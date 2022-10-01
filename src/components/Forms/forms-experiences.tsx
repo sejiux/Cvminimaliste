@@ -1,10 +1,7 @@
 import { formsExperiencesOneCols, formsExperiencesTwoCols } from '@utils/data/forms.utils';
 import React, { FC } from 'react';
 import { ExperiencesDto } from '@api/dto/experiencesDto';
-import {
-  updateEditorExperienceField,
-  updateExperienceField,
-} from '@store/models/updateField/updateField';
+import { updateEditorExperienceField, updateExperienceField } from '@store/updateField/updateField';
 import EditorForm from '@components/EditorForm';
 
 interface FormsExperiencesProps {

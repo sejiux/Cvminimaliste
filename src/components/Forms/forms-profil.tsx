@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { formsProfilOneCols, formsProfilTwoCols } from '@utils/data/forms.utils';
 import { profilInital } from '@utils/data/initialValue.utils';
 import { ProfilDto } from '@api/dto/profilDto';
-import { updateProfilField } from '@store/models/updateField/updateField';
+import { updateProfilField } from '@store/updateField/updateField';
 
 interface FormsProfilProps {
   profil: ProfilDto;

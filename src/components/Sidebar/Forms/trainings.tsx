@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import FormsTrainings from '@components/Forms/forms-trainings';
 import { MdOutlineAddBox } from 'react-icons/md';
 import { TrainingsDto } from '@api/dto/trainingsDto';
-import { modelsQuery } from '@store/models';
+import { trainingsQuery, trainingsService } from '@store/trainings';
 
 const Trainings = () => {
   const [trainings, setTrainings] = useState<TrainingsDto[] | undefined>(undefined);
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    const _trainings = modelsQuery.trainings$.subscribe(setTrainings);
+    const _trainings = trainingsQuery.trainings$.subscribe(setTrainings);
+    const _trainingId = trainingsQuery.trainingId$.subscribe(setCount);
     return () => {
       _trainings.unsubscribe();
+      _trainingId.unsubscribe();
     };
   }, []);
 
@@ -26,7 +28,7 @@ const Trainings = () => {
       ))}
       <button
         onClick={() => {
-          setCount(count + 1), setTrainings([...trainings!, { id: count }]);
+          setCount(count + 1), trainingsService.addTrainings([...trainings!, { id: count }]);
         }}
         className={`${
           count > 2

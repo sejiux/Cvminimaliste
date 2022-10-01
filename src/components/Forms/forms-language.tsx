@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import EditorForm from '@components/EditorForm';
-import { updateEditorLanguageField } from '@store/models/updateField/updateField';
+import { updateEditorLanguageField } from '@store/updateField/updateField';
 import { LanguageDto } from '@api/dto/languageDto';
 
 interface FormsLanguageProps {

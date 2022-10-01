@@ -10,6 +10,11 @@ import { SkillDto } from '@api/dto/skillDto';
 import { LanguageDto } from '@api/dto/languageDto';
 import { Link } from 'gatsby';
 import { ID } from '@datorama/akita';
+import { trainingsQuery } from '@store/trainings';
+import { experiencesQuery } from '@store/experiences';
+import { profilQuery } from '@store/profil';
+import { skillQuery } from '@store/skill';
+import { languageQuery } from '@store/language';
 import Sidebar from '@components/Sidebar';
 
 const Create = () => {
@@ -25,11 +30,11 @@ const Create = () => {
 
   useEffect(() => {
     const _modelsSelected = modelsQuery.modelIdSelected$.subscribe(setModelsSelected);
-    const _profil = modelsQuery.profil$.subscribe(setProfil);
-    const _trainings = modelsQuery.trainings$.subscribe(setTrainings);
-    const _experiences = modelsQuery.experiences$.subscribe(setExperiences);
-    const _skills = modelsQuery.skill$.subscribe(setSkill);
-    const _language = modelsQuery.language$.subscribe(setLanguage);
+    const _profil = profilQuery.profil$.subscribe(setProfil);
+    const _trainings = trainingsQuery.trainings$.subscribe(setTrainings);
+    const _experiences = experiencesQuery.experiences$.subscribe(setExperiences);
+    const _skills = skillQuery.skill$.subscribe(setSkill);
+    const _language = languageQuery.language$.subscribe(setLanguage);
     return () => {
       _modelsSelected.unsubscribe();
       _profil.unsubscribe();

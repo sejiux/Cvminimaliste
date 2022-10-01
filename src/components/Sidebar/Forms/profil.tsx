@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { modelsQuery } from '@store/models';
 import { ProfilDto } from '@api/dto/profilDto';
 import FormsProfil from '@components/Forms/forms-profil';
+import { profilQuery } from '@store/profil';
 
 const Profil = () => {
   const [profil, setProfil] = useState<ProfilDto | undefined>(undefined);
 
   useEffect(() => {
-    const _profil = modelsQuery.profil$.subscribe(setProfil);
+    const _profil = profilQuery.profil$.subscribe(setProfil);
     return () => {
       _profil.unsubscribe();
     };

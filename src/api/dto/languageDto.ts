@@ -1,6 +1,6 @@
 import { ID } from '@datorama/akita';
 
 export interface LanguageDto {
-  id: ID;
+  id?: ID;
   description?: string;
 }

@@ -3,6 +3,7 @@ import { modelsData } from '@utils/data/models.utils';
 import { modelsQuery, modelsService } from '@store/models';
 import { ID } from '@datorama/akita';
 import { ProfilDto } from '@api/dto/profilDto';
+import { profilQuery } from '@store/profil';
 
 const Models = () => {
   const [modelsSelected, setModelsSelected] = useState<ID | undefined>(0);
@@ -10,7 +11,7 @@ const Models = () => {
 
   useEffect(() => {
     const _modelsSelected = modelsQuery.modelIdSelected$.subscribe(setModelsSelected);
-    const _profil = modelsQuery.profil$.subscribe(setProfil);
+    const _profil = profilQuery.profil$.subscribe(setProfil);
     return () => {
       _modelsSelected.unsubscribe();
       _profil.unsubscribe();

@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react';
 import FormsExperiences from '@components/Forms/forms-experiences';
 import { MdOutlineAddBox } from 'react-icons/md';
 import { ExperiencesDto } from '@api/dto/experiencesDto';
-import { modelsQuery } from '@store/models';
+import { experiencesQuery, experiencesService } from '@store/experiences';
 
 const Experiences = () => {
-  const [experiences, setExperiences] = useState<ExperiencesDto[] | undefined>([]);
+  const [experiences, setExperiences] = useState<ExperiencesDto[]>([]);
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    const _trainings = modelsQuery.experiences$.subscribe(setExperiences);
+    const _experiences = experiencesQuery.experiences$.subscribe(setExperiences);
+    const _experienceId = experiencesQuery.experienceId$.subscribe(setCount);
     return () => {
-      _trainings.unsubscribe();
+      _experiences.unsubscribe();
+      _experienceId.unsubscribe();
     };
   }, []);
 
-  console.log('experiences:', experiences);
   return (
     <div className="px-14 py-10 text-[#303030] h-screen overflow-x-hidden">
       <div className="space-y-2 pb-5">
@@ -34,8 +35,8 @@ const Experiences = () => {
         onClick={(evt) => {
           evt.preventDefault();
           setCount(count + 1);
-          setExperiences([
-            ...experiences!,
+          experiencesService.addExperiences([
+            ...experiences,
             {
               id: count,
             },

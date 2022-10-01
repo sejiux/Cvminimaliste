@@ -8,11 +8,6 @@ export class ModelsQuery extends QueryEntity<ModelsModel> {
   }
 
   modelIdSelected$ = this.select((state) => state.id);
-  profil$ = this.select((state) => state.profil);
-  trainings$ = this.select((state) => state.trainings);
-  experiences$ = this.select((state) => state.experiences);
-  skill$ = this.select((state) => state.skill);
-  language$ = this.select((state) => state.language);
 }
 
 export const modelsQuery = new ModelsQuery(modelsStore);

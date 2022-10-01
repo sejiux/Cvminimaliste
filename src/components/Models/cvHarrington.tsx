@@ -51,7 +51,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
             </div>
           )}
 
-          {skill && (
+          {skill?.id! !== undefined && (
             <div className="space-y-1">
               <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
               <div className="space-y-2">
@@ -63,7 +63,7 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
             </div>
           )}
 
-          {language && (
+          {language?.id! !== undefined && (
             <div className="space-y-1">
               <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
               <div className="space-y-2">

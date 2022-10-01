@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TrainingsDto } from '@api/dto/trainingsDto';
-import { updateTrainingField } from '@store/models/updateField/updateField';
+import { updateTrainingField } from '@store/updateField/updateField';
 import { formsTrainingsOneCols, formsTrainingsTwoCols } from '@utils/data/forms.utils';
 
 interface FormsTrainingsProps {

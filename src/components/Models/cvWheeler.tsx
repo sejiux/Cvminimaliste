@@ -66,7 +66,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
                 </div>
               )}
 
-              {language && (
+              {language?.id! !== undefined && (
                 <div className="space-y-3">
                   <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <DescriptionMore title={language?.description} />
@@ -95,7 +95,7 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
                 </div>
               )}
 
-              {skill && (
+              {skill?.id! !== undefined && (
                 <div className="space-y-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                   <DescriptionMore title={skill?.description} />
