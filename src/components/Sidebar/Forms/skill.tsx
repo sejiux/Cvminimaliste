@@ -1,58 +1,56 @@
 import React, { FC, useState, useEffect } from 'react';
-import FormsTrainings from '@components/Forms/forms-trainings';
+import FormsSkill from '@components/Forms/forms-skill';
+import { SkillDto } from '@api/dto/skillDto';
 import { MdOutlineAdd } from 'react-icons/md';
-import { TrainingsDto } from '@api/dto/trainingsDto';
-import { trainingsQuery, trainingsService } from '@store/trainings';
+import { skillQuery, skillService } from '@store/skill';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 
-interface TrainingsProps {
+interface SkillProp {
   setSelected: (data: number) => void;
   setValue: (data: number) => void;
 }
 
-const Trainings: FC<TrainingsProps> = (props) => {
+const Skill: FC<SkillProp> = (props) => {
   const { setSelected, setValue } = props;
 
-  const [trainings, setTrainings] = useState<TrainingsDto[]>([]);
-  const [count, setCount] = useState<number>(0);
-
-  console.log(trainings);
+  const [skill, setSkill] = useState<SkillDto | undefined>(undefined);
+  const [countSkill, setCountSkill] = useState<number>(0);
 
   useEffect(() => {
-    const _trainings = trainingsQuery.trainings$.subscribe(setTrainings);
-    const _trainingId = trainingsQuery.trainingId$.subscribe(setCount);
+    const _skills$ = skillQuery.skill$.subscribe(setSkill);
+    const _skillId$ = skillQuery.skillId$.subscribe(setCountSkill);
     return () => {
-      _trainings.unsubscribe();
-      _trainingId.unsubscribe();
+      _skills$.unsubscribe();
+      _skillId$.unsubscribe();
     };
   }, []);
 
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-screen overflow-x-hidden">
       <div className="space-y-2">
-        <h3>Formations</h3>
+        <h3>Compétences</h3>
       </div>
-      {trainings.map((data, index) => (
-        <FormsTrainings key={index} trainings={trainings} training={data} trainingId={index} />
-      ))}
+      {skill?.id! !== undefined && <FormsSkill skill={skill!} />}
       <button
-        onClick={() => {
-          setCount(count + 1), trainingsService.addTrainings([...trainings!, { id: count }]);
+        onClick={(evt) => {
+          evt.preventDefault();
+          setCountSkill(countSkill + 1);
+          skillService.addSkills({ id: countSkill });
         }}
         className={`${
-          count > 2
+          skill?.id! !== undefined
             ? 'hidden'
             : 'w-full mx-auto mt-5 text-sm border border-[#24445c] py-5 px-9 rounded-md font-normal text-[#24445c] flex items-center justify-center hover:shadow-md'
-        }`}
+        } `}
       >
-        <MdOutlineAdd className="text-[#24445c] mr-2 text-lg hover:text-white" />
-        Ajouter une formation
+        <MdOutlineAdd className="text-[#24445c] mr-2 text-lg" />
+        Ajouter vos compétences
       </button>
       <div className="flex space-x-2 justify-between items-center mt-4">
         <button
           className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
-            setSelected(1), setValue(1);
+            setSelected(3), setValue(3);
           }}
         >
           <BsArrowLeftShort className="text-xl" />
@@ -61,7 +59,7 @@ const Trainings: FC<TrainingsProps> = (props) => {
         <button
           className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
-            setSelected(3), setValue(3);
+            setSelected(5), setValue(5);
           }}
         >
           Suivant
@@ -72,4 +70,4 @@ const Trainings: FC<TrainingsProps> = (props) => {
   );
 };
 
-export default Trainings;
+export default Skill;

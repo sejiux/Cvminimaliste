@@ -14,7 +14,7 @@ const FormsLanguage: FC<FormsLanguageProps> = (props) => {
     <form className="mt-5">
       <div className="mb-6">
         <label htmlFor="about" className="block mb-2 text-sm font-light">
-          Ajouter vos langues/références/hobbies
+          Ajouter vos langues
         </label>
         <EditorForm
           handleChange={updateEditorLanguageField('description', language)}

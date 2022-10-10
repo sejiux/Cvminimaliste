@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { modelsData } from '@utils/data/models.utils';
 import { modelsQuery, modelsService } from '@store/models';
 import { ID } from '@datorama/akita';
 import { ProfilDto } from '@api/dto/profilDto';
 import { profilQuery } from '@store/profil';
+import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import { navigate } from 'gatsby';
 
-const Models = () => {
+interface ModelsProps {
+  setSelected: (data: number) => void;
+  setValue: (data: number) => void;
+}
+
+const Models: FC<ModelsProps> = (props) => {
+  const { setSelected, setValue } = props;
+
   const [modelsSelected, setModelsSelected] = useState<ID | undefined>(0);
   const [profil, setProfil] = useState<ProfilDto | undefined>(undefined);
 
@@ -19,14 +28,14 @@ const Models = () => {
   }, []);
 
   return (
-    <div className="h-screen overflow-x-hidden">
-      <div className="px-14 py-10 grid grid-cols-2 gap-2 mx-auto">
+    <div className="pr-5 py-5 h-screen overflow-x-hidden">
+      <div className="grid grid-cols-2 gap-3 mx-auto">
         {modelsData.map((data, index) => (
           <button
             key={index}
             className={`${
-              modelsSelected === index ? 'border-gray-500 shadow-xl' : 'border-gray-200'
-            } border-2 w-auto shadow-md hover:border-gray-400 hover:opacity-70`}
+              modelsSelected === index ? 'border-[#24445c] shadow-xl' : 'border-gray-200'
+            } border-2 w-auto shadow-md hover:border-gray-400 hover:opacity-70 rounded-md`}
             onClick={() => modelsService.handleModelSelected(index)}
           >
             <div className="p-1">
@@ -34,6 +43,22 @@ const Models = () => {
             </div>
           </button>
         ))}
+        <button
+          className="bg-gray-200 w-full hover:bg-gray-300 text-gray-400 py-5 px-9 text-sm rounded-lg flex items-center justify-center"
+          onClick={() => navigate('/')}
+        >
+          <BsArrowLeftShort className="text-xl" />
+          Accueil
+        </button>
+        <button
+          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
+          onClick={() => {
+            setSelected(1), setValue(1);
+          }}
+        >
+          Suivant
+          <BsArrowRightShort className="text-xl" />
+        </button>
       </div>
     </div>
   );

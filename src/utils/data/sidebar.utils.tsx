@@ -1,61 +1,75 @@
 import React from 'react';
-import More from '@components/Sidebar/Forms/more';
 import Profil from '@components/Sidebar/Forms/profil';
 import Skills from '@components/Forms/forms-skill';
 import Trainings from '@components/Sidebar/Forms/trainings';
 import Models from '@components/Sidebar/Forms/models';
 import Experiences from '@components/Sidebar/Forms/experiences';
-import {
-  MdOutlineViewCarousel,
-  MdOutlineAccountCircle,
-  MdWorkOutline,
-  MdOutlineManageAccounts,
-  MdOutlineMoreHoriz,
-} from 'react-icons/md';
+import { MdInsertChart } from 'react-icons/md';
+import { BsGridFill, BsFillPersonFill } from 'react-icons/bs';
+import { AiFillSound, AiFillFund } from 'react-icons/ai';
+import { IoBriefcase } from 'react-icons/io5';
+import Skill from '@components/Sidebar/Forms/skill';
+import Language from '@components/Sidebar/Forms/language';
 
-const classes = 'mx-auto w-8 h-8 text-[#303030] transition duration-75 group-hover:text-[#303030]';
+const classOfSelected = (selected?: number, value?: number, isSelected?: boolean) => {
+  const classes = `${
+    selected === value && isSelected ? 'text-[#24445c]' : 'text-gray-400'
+  } mx-auto w-7 h-7 mb-2 transition duration-75`;
+  return classes;
+};
 
-export const sidebarData = [
+export const sidebarData = (selected?: number, isSelected?: boolean) => [
   {
     index: 0,
-    icon: <MdOutlineViewCarousel className={classes} />,
+    icon: <BsGridFill className={classOfSelected(selected, 0, isSelected)} />,
     name: `Modèles`,
   },
   {
     index: 1,
-    icon: <MdOutlineAccountCircle className={classes} />,
+    icon: <BsFillPersonFill className={classOfSelected(selected, 1, isSelected)} />,
     name: `Profil`,
   },
   {
     index: 2,
-    icon: <MdOutlineManageAccounts className={classes} />,
+    icon: <AiFillFund className={classOfSelected(selected, 2, isSelected)} />,
     name: `Formations`,
   },
   {
     index: 3,
-    icon: <MdWorkOutline className={classes} />,
+    icon: <IoBriefcase className={classOfSelected(selected, 3, isSelected)} />,
     name: `Expériences`,
   },
   {
     index: 4,
-    icon: <MdOutlineMoreHoriz className={classes} />,
-    name: `Plus`,
+    icon: <MdInsertChart className={classOfSelected(selected, 4, isSelected)} />,
+    name: 'Compétences',
+  },
+  {
+    index: 5,
+    icon: <AiFillSound className={classOfSelected(selected, 5, isSelected)} />,
+    name: 'Langues',
   },
 ];
 
-export const renderOfButtonSelected = (selected: number) => {
+export const renderOfButtonSelected = (
+  selected: number,
+  setSelected: (value: number) => void,
+  setValue: (value: number) => void
+) => {
   switch (selected) {
     case 0:
-      return <Models />;
+      return <Models setSelected={setSelected} setValue={setValue} />;
     case 1:
-      return <Profil />;
+      return <Profil setSelected={setSelected} setValue={setValue} />;
     case 2:
-      return <Trainings />;
+      return <Trainings setSelected={setSelected} setValue={setValue} />;
     case 3:
-      return <Experiences />;
+      return <Experiences setSelected={setSelected} setValue={setValue} />;
     case 4:
-      return <More />;
+      return <Skill setSelected={setSelected} setValue={setValue} />;
+    case 5:
+      return <Language setSelected={setSelected} setValue={setValue} />;
     default:
-      return <Models />;
+      return <Models setSelected={setSelected} setValue={setValue} />;
   }
 };

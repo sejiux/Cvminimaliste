@@ -21,19 +21,18 @@ const IndexPage = () => {
   const [selected, setSelected] = useState(0);
   const isMobiles = isMobile();
 
+  const seo = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    description: 'A simple starter with SEO optimization to quickly develop with Gatsby',
+    name: 'Sayro Dev',
+    url: 'https://gatsby-starter-seo.netlify.app/',
+    logo: 'https://gatsby-starter-seo.netlify.app/images/logo.png',
+  };
+
   return (
     <Layout>
-      <Seo
-        title="Accueil"
-        schemaMarkup={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          description: 'A simple starter with SEO optimization to quickly develop with Gatsby',
-          name: 'Sayro Dev',
-          url: 'https://gatsby-starter-seo.netlify.app/',
-          logo: 'https://gatsby-starter-seo.netlify.app/images/logo.png',
-        }}
-      />
+      <Seo title="Accueil" schemaMarkup={seo} />
 
       <Navbar
         logo={Logo}

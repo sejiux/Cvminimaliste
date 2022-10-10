@@ -1,58 +1,57 @@
 import React, { FC, useState, useEffect } from 'react';
-import FormsTrainings from '@components/Forms/forms-trainings';
 import { MdOutlineAdd } from 'react-icons/md';
-import { TrainingsDto } from '@api/dto/trainingsDto';
-import { trainingsQuery, trainingsService } from '@store/trainings';
+import { LanguageDto } from '@api/dto/languageDto';
+import FormsLanguage from '@components/Forms/forms-language';
+import { languageQuery, languageService } from '@store/language';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 
-interface TrainingsProps {
+interface LanguageProps {
   setSelected: (data: number) => void;
   setValue: (data: number) => void;
 }
 
-const Trainings: FC<TrainingsProps> = (props) => {
+const Language: FC<LanguageProps> = (props) => {
   const { setSelected, setValue } = props;
 
-  const [trainings, setTrainings] = useState<TrainingsDto[]>([]);
-  const [count, setCount] = useState<number>(0);
-
-  console.log(trainings);
+  const [language, setLangugage] = useState<LanguageDto | undefined>(undefined);
+  const [countLanguage, setCountLangugage] = useState<number>(0);
 
   useEffect(() => {
-    const _trainings = trainingsQuery.trainings$.subscribe(setTrainings);
-    const _trainingId = trainingsQuery.trainingId$.subscribe(setCount);
+    const _language$ = languageQuery.language$.subscribe(setLangugage);
+    const _languageId$ = languageQuery.languageId$.subscribe(setCountLangugage);
     return () => {
-      _trainings.unsubscribe();
-      _trainingId.unsubscribe();
+      _language$.unsubscribe();
+      _languageId$.unsubscribe();
     };
   }, []);
 
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-screen overflow-x-hidden">
       <div className="space-y-2">
-        <h3>Formations</h3>
+        <h3>Langues</h3>
       </div>
-      {trainings.map((data, index) => (
-        <FormsTrainings key={index} trainings={trainings} training={data} trainingId={index} />
-      ))}
+      {language?.id! !== undefined && <FormsLanguage language={language!} />}
+      <br />
       <button
-        onClick={() => {
-          setCount(count + 1), trainingsService.addTrainings([...trainings!, { id: count }]);
+        onClick={(evt) => {
+          evt.preventDefault();
+          setCountLangugage(countLanguage + 1);
+          languageService.addLanguage({ id: countLanguage });
         }}
         className={`${
-          count > 2
+          language?.id! !== undefined
             ? 'hidden'
             : 'w-full mx-auto mt-5 text-sm border border-[#24445c] py-5 px-9 rounded-md font-normal text-[#24445c] flex items-center justify-center hover:shadow-md'
-        }`}
+        } `}
       >
-        <MdOutlineAdd className="text-[#24445c] mr-2 text-lg hover:text-white" />
-        Ajouter une formation
+        <MdOutlineAdd className="text-[#303030] mr-2 text-lg" />
+        Ajouter vos langues
       </button>
       <div className="flex space-x-2 justify-between items-center mt-4">
         <button
           className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
-            setSelected(1), setValue(1);
+            setSelected(4), setValue(4);
           }}
         >
           <BsArrowLeftShort className="text-xl" />
@@ -61,7 +60,7 @@ const Trainings: FC<TrainingsProps> = (props) => {
         <button
           className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
-            setSelected(3), setValue(3);
+            setSelected(5), setValue(5);
           }}
         >
           Suivant
@@ -72,4 +71,4 @@ const Trainings: FC<TrainingsProps> = (props) => {
   );
 };
 
-export default Trainings;
+export default Language;
