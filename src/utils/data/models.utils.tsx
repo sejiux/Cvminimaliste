@@ -39,7 +39,9 @@ export const renderOfModelsSelected = (
   trainings?: TrainingsDto[],
   experiences?: ExperiencesDto[],
   skill?: SkillDto,
-  language?: LanguageDto
+  language?: LanguageDto,
+  firstColor?: string,
+  secondColor?: string
 ) => {
   switch (selected) {
     case 0:
@@ -50,6 +52,8 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
+          firstColor={firstColor}
+          secondColor={secondColor}
         />
       );
     case 1:
@@ -60,6 +64,8 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
+          firstColor={firstColor}
+          secondColor={secondColor}
         />
       );
     case 2:
@@ -70,6 +76,8 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
+          firstColor={firstColor}
+          secondColor={secondColor}
         />
       );
     case 3:
@@ -80,6 +88,8 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
+          firstColor={firstColor}
+          secondColor={secondColor}
         />
       );
     default:

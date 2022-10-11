@@ -17,10 +17,12 @@ interface CvWheelerProps {
   experiences?: ExperiencesDto[];
   skill?: SkillDto;
   language?: LanguageDto;
+  firstColor?: string;
+  secondColor?: string;
 }
 
 const CvWheeler: FC<CvWheelerProps> = (props) => {
-  const { profil, trainings, experiences, skill, language } = props;
+  const { profil, trainings, experiences, skill, language, firstColor, secondColor } = props;
 
   return (
     <div className="font-regular text-[#303030]">
@@ -32,11 +34,17 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
               <h5 className="font-PoppinsBold">{profil?.firstName}</h5>
             </div>
             <div className="flex items-center absolute -bottom-1">
-              <div className="w-10 py-[1px] bg-[#ffbd59]" />
+              <div
+                className={`${!secondColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
+                style={{ background: secondColor }}
+              />
               <p className="pl-2 font-PoppinsRegular text-[10px]">{profil?.title}</p>
             </div>
           </div>
-          <div className="bg-[#ffbd59] w-36 h-24">
+          <div
+            className={`${!secondColor && 'bg-[#ffbd59]'} w-36 h-24`}
+            style={{ background: secondColor }}
+          >
             <div className="text-[8px] text-[#303030] flex flex-col justify-center align-middle h-full pl-3">
               {contactData(profil!).map((data, index) => (
                 <DescriptionContact key={index} icon={data.icon} description={data.description!} />

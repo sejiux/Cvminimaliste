@@ -16,13 +16,13 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
     <form className="mt-5">
       {formsExperiencesOneCols(experience).map((formExperiencesOneCols, formId) => (
         <div key={formId} className="mb-6">
-          <label htmlFor={formExperiencesOneCols.name} className="block mb-2 text-sm font-light">
+          <label htmlFor={formExperiencesOneCols.name} className="block mb-2 text-xs font-light">
             {formExperiencesOneCols.label}
           </label>
           <input
             type={formExperiencesOneCols.type}
             id={formExperiencesOneCols.name}
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
             onChange={updateExperienceField(
               formExperiencesOneCols.name,
               experiences,
@@ -36,13 +36,13 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
         <div key={index} className="grid md:grid-cols-2 md:gap-6">
           {formExperienceTwoCols.map((formDataTwoCols, formId) => (
             <div key={formId} className="mb-6">
-              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-sm font-light">
+              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-xs font-light">
                 {formDataTwoCols.label}
               </label>
               <input
                 type="date"
                 id={formDataTwoCols.name}
-                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
                 onChange={updateExperienceField(formDataTwoCols.name, experiences, experienceId!)}
                 value={formDataTwoCols.value?.toString()}
               ></input>
@@ -52,7 +52,7 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
       ))}
 
       <div className="mb-6">
-        <label htmlFor="jobDescription" className="block mb-2 text-sm font-light">
+        <label htmlFor="jobDescription" className="block mb-2 text-xs font-light">
           Description du poste
         </label>
         <EditorForm
@@ -62,7 +62,6 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
       </div>
 
       <hr />
-      <br />
     </form>
   );
 };

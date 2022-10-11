@@ -13,7 +13,7 @@ const FormsLanguage: FC<FormsLanguageProps> = (props) => {
   return (
     <form className="mt-5">
       <div className="mb-6">
-        <label htmlFor="about" className="block mb-2 text-sm font-light">
+        <label htmlFor="about" className="block mb-2 text-xs font-light">
           Ajouter vos langues
         </label>
         <EditorForm
@@ -21,7 +21,6 @@ const FormsLanguage: FC<FormsLanguageProps> = (props) => {
           addData={language?.description!}
         />
       </div>
-      <hr />
     </form>
   );
 };

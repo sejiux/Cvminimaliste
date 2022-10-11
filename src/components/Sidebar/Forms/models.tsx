@@ -28,14 +28,14 @@ const Models: FC<ModelsProps> = (props) => {
   }, []);
 
   return (
-    <div className="pr-5 py-5 h-screen overflow-x-hidden">
+    <div className="pr-5 py-5 h-full overflow-x-hidden">
       <div className="grid grid-cols-2 gap-3 mx-auto">
         {modelsData.map((data, index) => (
           <button
             key={index}
             className={`${
-              modelsSelected === index ? 'border-[#24445c] shadow-xl' : 'border-gray-200'
-            } border-2 w-auto shadow-md hover:border-gray-400 hover:opacity-70 rounded-md`}
+              modelsSelected === index ? 'border-[#24445c] shadow-xl' : 'opacity-50'
+            } border-2 w-auto shadow-md hover:border-gray-400 hover:opacity-80 rounded-md`}
             onClick={() => modelsService.handleModelSelected(index)}
           >
             <div className="p-1">
@@ -44,14 +44,14 @@ const Models: FC<ModelsProps> = (props) => {
           </button>
         ))}
         <button
-          className="bg-gray-200 w-full hover:bg-gray-300 text-gray-400 py-5 px-9 text-sm rounded-lg flex items-center justify-center"
+          className="bg-gray-200 w-full hover:bg-gray-300 text-gray-400 py-5 px-9 text-xs rounded-lg flex items-center justify-center"
           onClick={() => navigate('/')}
         >
           <BsArrowLeftShort className="text-xl" />
           Accueil
         </button>
         <button
-          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
             setSelected(1), setValue(1);
           }}

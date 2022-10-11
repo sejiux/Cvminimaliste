@@ -19,14 +19,19 @@ interface CVHendersonProps {
   experiences?: ExperiencesDto[];
   skill?: SkillDto;
   language?: LanguageDto;
+  firstColor?: string;
+  secondColor?: string;
 }
 
 const CvHenderson: FC<CVHendersonProps> = (props) => {
-  const { profil, trainings, experiences, skill, language } = props;
+  const { profil, trainings, experiences, skill, language, firstColor, secondColor } = props;
 
   return (
     <div className="font-regular text-[#303030]">
-      <header className="relative bg-[#303030] text-white h-28">
+      <header
+        className={`${!firstColor && 'bg-[#303030]'} relative text-white h-28`}
+        style={{ background: firstColor }}
+      >
         <div className="flex justify-between items-center pt-5">
           <div>
             <div className="text-2xl ml-7 leading-6">
@@ -34,11 +39,17 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
               <h5 className="font-PoppinsBold">{profil?.firstName}</h5>
             </div>
             <div className="flex items-center absolute bottom-3">
-              <div className="w-10 py-[1px] bg-[#ffbd59]" />
+              <div
+                className={`${!secondColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
+                style={{ background: secondColor }}
+              />
               <p className="pl-2 font-RalewayRegular text-[10px]">{profil?.title}</p>
             </div>
           </div>
-          <div className="bg-[#ffbd59] w-40 h-auto py-2">
+          <div
+            className={`${!secondColor && 'bg-[#ffbd59]'} w-40 h-auto py-2`}
+            style={{ background: secondColor }}
+          >
             <div className="text-[8px] text-[#303030] flex flex-col justify-center align-middle h-full pl-3">
               {contactData(profil!).map((data, index) => (
                 <DescriptionContact key={index} icon={data.icon} description={data.description!} />
@@ -53,7 +64,10 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
           <div className="w-full space-y-1">
             <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
             <div className="flex space-x-2">
-              <div className="h-auto px-[0.3px] bg-[#303030]" />
+              <div
+                className={`${!firstColor && 'bg-[#303030]'} h-auto px-[0.3px]`}
+                style={{ background: firstColor }}
+              />
               <DescriptionProfil description={profil?.about} />
             </div>
           </div>
@@ -63,7 +77,10 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
               <div className="w-64 space-y-1">
                 <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                 <div className="flex space-x-2">
-                  <div className="h-auto px-[0.3px] bg-[#303030]" />
+                  <div
+                    className={`{!firstColor && 'bg-[#303030]'} h-auto px-[0.3px]`}
+                    style={{ background: firstColor }}
+                  />
                   <div className="space-y-3">
                     {experiences?.map((data, index) => (
                       <DescriptionXp
@@ -83,7 +100,10 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                 <div className="space-y-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
                   <div className="flex space-x-2">
-                    <div className="h-auto px-[0.3px] bg-[#303030]" />
+                    <div
+                      className={`${!firstColor && 'bg-[#303030]'} h-auto px-[0.3px]`}
+                      style={{ background: firstColor }}
+                    />
                     <div className="space-y-3">
                       {trainings?.map((data, index) => (
                         <DescriptionFormations
@@ -101,7 +121,10 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                 <div className="space-y-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
                   <div className="flex space-x-2">
-                    <div className="h-auto px-[0.3px] bg-[#303030]" />
+                    <div
+                      className={`${!firstColor && 'bg-[#303030]'} h-auto px-[0.3px]`}
+                      style={{ background: firstColor }}
+                    />
                     <DescriptionMore title={skill?.description} />
                   </div>
                 </div>
@@ -111,7 +134,10 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
                 <div className="space-y-1 col-span-1">
                   <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
                   <div className="flex space-x-2">
-                    <div className="h-auto px-[0.3px] bg-[#303030]" />
+                    <div
+                      className={`${!firstColor && 'bg-[#303030]'} h-auto px-[0.3px]`}
+                      style={{ background: firstColor }}
+                    />
                     <DescriptionMore title={language?.description} />
                   </div>
                 </div>

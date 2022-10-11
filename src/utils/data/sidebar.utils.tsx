@@ -54,7 +54,8 @@ export const sidebarData = (selected?: number, isSelected?: boolean) => [
 export const renderOfButtonSelected = (
   selected: number,
   setSelected: (value: number) => void,
-  setValue: (value: number) => void
+  setValue: (value: number) => void,
+  setIsDownload: (value: boolean) => void
 ) => {
   switch (selected) {
     case 0:
@@ -68,7 +69,9 @@ export const renderOfButtonSelected = (
     case 4:
       return <Skill setSelected={setSelected} setValue={setValue} />;
     case 5:
-      return <Language setSelected={setSelected} setValue={setValue} />;
+      return (
+        <Language setSelected={setSelected} setValue={setValue} setIsDownload={setIsDownload} />
+      );
     default:
       return <Models setSelected={setSelected} setValue={setValue} />;
   }

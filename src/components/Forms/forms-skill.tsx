@@ -13,7 +13,7 @@ const FormsSkill: FC<FormsSkillProps> = (props) => {
   return (
     <form className="mt-5">
       <div className="mb-6">
-        <label htmlFor="description" className="block mb-2 text-sm font-light">
+        <label htmlFor="description" className="block mb-2 text-xs font-light">
           Ajouter vos compétences
         </label>
         <EditorForm

@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
         info: <AiFillInfoCircle color="inherit" style={{ marginRight: 10 }} />,
       }}
     >
-      <div className="max-w-screen m-auto font-PoppinsRegular scroll-smooth text-[#191919]">
+      <div className="max-w-screen m-auto font-PoppinsLight scroll-smooth text-[#191919]">
         {children}
       </div>
       <SnackbarUtilsConfigurator />

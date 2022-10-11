@@ -17,13 +17,13 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
         <div key={index} className="grid md:grid-cols-2 md:gap-6">
           {formProfilTwoCols.map((formDataTwoCols, index) => (
             <div key={index} className="mb-6">
-              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-sm font-light">
+              <label htmlFor={formDataTwoCols.name} className="block mb-2 text-xs font-light">
                 {formDataTwoCols.label}
               </label>
               <input
                 type="text"
                 id={formDataTwoCols.name}
-                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
                 onChange={updateProfilField(formDataTwoCols.name, profil)}
                 value={
                   formDataTwoCols.value !== formDataTwoCols.initial
@@ -37,13 +37,13 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
       ))}
       {formsProfilOneCols(profil!).map((formDataOneCols, index) => (
         <div key={index} className="mb-6">
-          <label htmlFor={formDataOneCols.name} className="block mb-2 text-sm font-light">
+          <label htmlFor={formDataOneCols.name} className="block mb-2 text-xs font-light">
             {formDataOneCols.label}
           </label>
           <input
             type={formDataOneCols.type}
             id={formDataOneCols.name}
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
             onChange={updateProfilField(formDataOneCols.name, profil)}
             value={
               formDataOneCols.value !== formDataOneCols.initial ? formDataOneCols.value : undefined
@@ -52,13 +52,13 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
         </div>
       ))}
       <div className="mb-6">
-        <label htmlFor="about" className="block mb-2 text-sm font-light">
+        <label htmlFor="about" className="block mb-2 text-xs font-light">
           A propos
         </label>
         <textarea
           rows={6}
           id="about"
-          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-sm rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
           onChange={updateProfilField('about', profil)}
           value={profil?.about !== profilInital.about ? profil?.about : undefined}
         ></textarea>

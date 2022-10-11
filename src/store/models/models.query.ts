@@ -8,6 +8,8 @@ export class ModelsQuery extends QueryEntity<ModelsModel> {
   }
 
   modelIdSelected$ = this.select((state) => state.id);
+  firstColor$ = this.select((state) => state.style?.firstColor);
+  secondColor$ = this.select((state) => state.style?.secondColor);
 }
 
 export const modelsQuery = new ModelsQuery(modelsStore);

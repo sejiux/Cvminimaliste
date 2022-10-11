@@ -26,9 +26,9 @@ const Skill: FC<SkillProp> = (props) => {
   }, []);
 
   return (
-    <div className="pl-1 pr-6 py-5 text-[#303030] h-screen overflow-x-hidden">
+    <div className="pl-1 pr-6 py-5 text-[#303030] h-full overflow-x-hidden">
       <div className="space-y-2">
-        <h3>Compétences</h3>
+        <h3 className="font-PoppinsBold text-gray-400 text-lg mb-10">Compétences</h3>
       </div>
       {skill?.id! !== undefined && <FormsSkill skill={skill!} />}
       <button
@@ -40,15 +40,15 @@ const Skill: FC<SkillProp> = (props) => {
         className={`${
           skill?.id! !== undefined
             ? 'hidden'
-            : 'w-full mx-auto mt-5 text-sm border border-[#24445c] py-5 px-9 rounded-md font-normal text-[#24445c] flex items-center justify-center hover:shadow-md'
+            : 'w-full mx-auto mt-5 text-xs border border-[#24445c] py-5 px-9 rounded-md text-[#24445c] flex items-center justify-center hover:shadow-md'
         } `}
       >
         <MdOutlineAdd className="text-[#24445c] mr-2 text-lg" />
         Ajouter vos compétences
       </button>
-      <div className="flex space-x-2 justify-between items-center mt-4">
+      <div className="flex space-x-6 justify-between items-center mt-4">
         <button
-          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
             setSelected(3), setValue(3);
           }}
@@ -57,7 +57,7 @@ const Skill: FC<SkillProp> = (props) => {
           Précédent
         </button>
         <button
-          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-sm rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
             setSelected(5), setValue(5);
           }}
