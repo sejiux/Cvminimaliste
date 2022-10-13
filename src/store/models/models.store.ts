@@ -3,6 +3,8 @@ import { ModelsModel } from './models.model';
 
 const initialState: ModelsModel = {
   id: 0,
+  firstColor: '',
+  secondColor: '',
 };
 
 @StoreConfig({ name: 'models', resettable: false })

@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { sidebarData, renderOfButtonSelected } from '@utils/data/sidebar.utils';
+import {
+  sidebarData,
+  renderOfButtonSelected,
+  renderOfStyleSelected,
+} from '@utils/data/sidebar.utils';
 import { renderOfModelsSelected } from '@utils/data/models.utils';
-import { modelsQuery } from '@store/models';
-import { ProfilDto } from '@api/dto/profilDto';
-import { TrainingsDto } from '@api/dto/trainingsDto';
 import { ExperiencesDto } from '@api/dto/experiencesDto';
-import { SkillDto } from '@api/dto/skillDto';
-import { LanguageDto } from '@api/dto/languageDto';
-import { ID } from '@datorama/akita';
-import { trainingsQuery } from '@store/trainings';
 import { experiencesQuery } from '@store/experiences';
-import { profilQuery } from '@store/profil';
-import { skillQuery } from '@store/skill';
+import { trainingsQuery } from '@store/trainings';
 import { languageQuery } from '@store/language';
+import { TrainingsDto } from '@api/dto/trainingsDto';
+import { profilQuery } from '@store/profil';
+import { LanguageDto } from '@api/dto/languageDto';
+import { modelsQuery } from '@store/models';
+import { skillQuery } from '@store/skill';
+import { BsDownload } from 'react-icons/bs';
+import { ProfilDto } from '@api/dto/profilDto';
+import { SkillDto } from '@api/dto/skillDto';
+import { ID } from '@datorama/akita';
 import Sidebar from '@components/Sidebar';
 import Layout from 'components/layout';
-import { BsDownload } from 'react-icons/bs';
 import Modal from '@components/Modal';
-import { ChromePicker } from 'react-color';
 
 const Create = () => {
   const [selected, setSelected] = useState(0);
+  const [selectedColor, setSelectedColor] = useState(0);
   const [value, setValue] = useState(0);
   const [isSelected, setIsSelected] = useState(true);
   const [modelsSelected, setModelsSelected] = useState<ID | undefined>(0);
@@ -30,10 +34,12 @@ const Create = () => {
   const [skill, setSkill] = useState<SkillDto | undefined>(undefined);
   const [language, setLanguage] = useState<LanguageDto | undefined>(undefined);
   const [isDownload, setIsDownload] = useState<boolean>(false);
-  const [isToggleFirstColor, setIsToggleFirstColor] = useState<boolean>(false);
-  const [isToggleSecondColor, setIsToggleSecondColor] = useState<boolean>(false);
-  const [firstColor, setFirstColor] = useState<string | undefined>(undefined);
-  const [secondColor, setSecondColor] = useState<string | undefined>(undefined);
+  const [isToggleModalFirstColor, setIsToggleModalFirstColor] = useState<boolean>(false);
+  const [isToggleModalSecondColor, setIsToggleModalSecondColor] = useState<boolean>(false);
+  const [firstBgColor, setFirstBgColor] = useState<string | undefined>(undefined);
+  const [secondBgColor, setSecondBgColor] = useState<string | undefined>(undefined);
+  const [firstTextColor, setFirstTextColor] = useState<string | undefined>(undefined);
+  const [secondTextColor, setSecondTextColor] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const _modelsSelected = modelsQuery.modelIdSelected$.subscribe(setModelsSelected);
@@ -42,8 +48,10 @@ const Create = () => {
     const _experiences = experiencesQuery.experiences$.subscribe(setExperiences);
     const _skills = skillQuery.skill$.subscribe(setSkill);
     const _language = languageQuery.language$.subscribe(setLanguage);
-    const _firstColor = modelsQuery.firstColor$.subscribe(setFirstColor);
-    const _secondColor = modelsQuery.firstColor$.subscribe(setSecondColor);
+    const _firstBgColor = modelsQuery.firstBgColor$.subscribe(setFirstBgColor);
+    const _secondBgColor = modelsQuery.secondBgColor$.subscribe(setSecondBgColor);
+    const _firstTextColor = modelsQuery.firstTextColor$.subscribe(setFirstTextColor);
+    const _secondTextColor = modelsQuery.secondTextColor$.subscribe(setSecondTextColor);
     return () => {
       _modelsSelected.unsubscribe();
       _profil.unsubscribe();
@@ -51,8 +59,10 @@ const Create = () => {
       _experiences.unsubscribe();
       _skills.unsubscribe();
       _language.unsubscribe();
-      _firstColor.unsubscribe();
-      _secondColor.unsubscribe();
+      _firstBgColor.unsubscribe();
+      _secondBgColor.unsubscribe();
+      _firstTextColor.unsubscribe();
+      _secondTextColor.unsubscribe();
     };
   }, []);
 
@@ -76,10 +86,17 @@ const Create = () => {
             setValue={setValue}
             setIsSelected={setIsSelected}
             isSelected={isSelected}
+            setIsToggleModalFirstColor={setIsToggleModalFirstColor}
+            setIsToggleModalSecondColor={setIsToggleModalSecondColor}
           />
           {value === selected && isSelected && (
             <div className="bg-white w-[650px] h-full rounded-r-md">
               {renderOfButtonSelected(selected, setSelected, setValue, setIsDownload)}
+            </div>
+          )}
+          {!isSelected && (isToggleModalFirstColor || isToggleModalSecondColor) && (
+            <div className="bg-white w-[650px] h-full rounded-r-md">
+              {renderOfStyleSelected(selectedColor)}
             </div>
           )}
           <div className="flex justify-center align-middle items-center w-full space-x-4">
@@ -91,42 +108,33 @@ const Create = () => {
                 experiences,
                 skill,
                 language,
-                firstColor,
-                secondColor
+                firstBgColor,
+                secondBgColor,
+                firstTextColor,
+                secondTextColor
               )}
             </div>
             <div className="h-[600px] flex justify-end flex-col space-y-2">
               <button
-                className={`${!firstColor && 'bg-[#191919]'} rounded-md w-10 h-10 mt-24 relative`}
-                onClick={() => setIsToggleFirstColor(!isToggleFirstColor)}
-                style={{ background: firstColor }}
-              >
-                {isToggleFirstColor ? (
-                  <div className="absolute z-[2] bottom-12">
-                    <div className="mb-24 fixed" onClick={() => setIsToggleFirstColor(false)} />
-                    <ChromePicker
-                      color={firstColor}
-                      onChange={(data: any) => setFirstColor(data.hex)}
-                    />
-                  </div>
-                ) : null}
-              </button>
-
+                className={`${!firstBgColor && 'bg-[#191919]'} rounded-md w-10 h-10 mt-24`}
+                onClick={() => {
+                  setIsToggleModalFirstColor(!isToggleModalFirstColor),
+                    setIsToggleModalSecondColor(false),
+                    setIsSelected(false),
+                    setSelectedColor(0);
+                }}
+                style={{ background: firstBgColor }}
+              ></button>
               <button
-                className={`${!secondColor && 'bg-[#FFBD59]'} rounded-md w-10 h-10 mt-24 relative`}
-                onClick={() => setIsToggleSecondColor(!isToggleSecondColor)}
-                style={{ background: secondColor }}
-              >
-                {isToggleSecondColor ? (
-                  <div className="absolute z-[2] bottom-12">
-                    <div className="mb-24 fixed" onClick={() => setIsToggleSecondColor(false)} />
-                    <ChromePicker
-                      color={secondColor}
-                      onChange={(data: any) => setSecondColor(data.hex)}
-                    />
-                  </div>
-                ) : null}
-              </button>
+                className={`${!secondBgColor && 'bg-[#FFBD59]'} rounded-md w-10 h-10 mt-24`}
+                onClick={() => {
+                  setIsToggleModalSecondColor(!isToggleModalSecondColor),
+                    setIsToggleModalFirstColor(false),
+                    setIsSelected(false),
+                    setSelectedColor(1);
+                }}
+                style={{ background: secondBgColor }}
+              ></button>
             </div>
           </div>
         </div>
@@ -144,7 +152,11 @@ const Create = () => {
             trainings,
             experiences,
             skill,
-            language
+            language,
+            firstBgColor,
+            secondBgColor,
+            firstTextColor,
+            secondTextColor
           )}
         </Modal>
       )}

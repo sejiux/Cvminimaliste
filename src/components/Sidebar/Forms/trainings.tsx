@@ -16,8 +16,6 @@ const Trainings: FC<TrainingsProps> = (props) => {
   const [trainings, setTrainings] = useState<TrainingsDto[]>([]);
   const [count, setCount] = useState<number>(0);
 
-  console.log(trainings);
-
   useEffect(() => {
     const _trainings = trainingsQuery.trainings$.subscribe(setTrainings);
     const _trainingId = trainingsQuery.trainingId$.subscribe(setCount);

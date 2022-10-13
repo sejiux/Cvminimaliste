@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import DescriptionFormations from './Description/description-formations';
 import DescriptionProfil from './Description/description-profil';
 import DescriptionXp from './Description/description-xp';
-import DescriptionLists from './Description/description-more';
 import DescriptionContact from './Description/description-contact';
 import { ProfilDto } from '@api/dto/profilDto';
 import { contactData } from '@utils/data/forms.utils';
@@ -18,24 +17,36 @@ interface CVHarringtonProps {
   experiences?: ExperiencesDto[];
   skill?: SkillDto;
   language?: LanguageDto;
-  firstColor?: string;
-  secondColor?: string;
+  firstBgColor?: string;
+  secondBgColor?: string;
+  firstTextColor?: string;
+  secondTextColor?: string;
 }
 
 const CvHarrington: FC<CVHarringtonProps> = (props) => {
-  const { profil, trainings, experiences, skill, language, firstColor, secondColor } = props;
+  const {
+    profil,
+    trainings,
+    experiences,
+    skill,
+    language,
+    firstBgColor,
+    secondBgColor,
+    firstTextColor,
+    secondTextColor,
+  } = props;
 
   return (
     <div className="h-full flex justify-between text-[#303030]">
       <aside
-        className={`${!firstColor && 'bg-[#303030]'} relative h-full w-44 px-4 text-white`}
-        style={{ background: firstColor }}
+        className={`${!firstBgColor && 'bg-[#303030]'} relative h-full w-44 px-4`}
+        style={{ background: firstBgColor, color: firstTextColor }}
       >
         <div
-          className={`${!secondColor && 'bg-[#ffbd59]'} w-[1.7px] h-6 ml-1`}
-          style={{ background: secondColor }}
+          className={`${!secondBgColor && 'bg-[#ffbd59]'} w-[1.7px] h-6 ml-1`}
+          style={{ background: secondBgColor }}
         />
-        <div className="text-[8px] text-white flex flex-col h-auto pt-2">
+        <div className="text-[8px] flex flex-col h-auto pt-2" style={{ color: firstTextColor }}>
           {contactData(profil!).map((data, index) => (
             <DescriptionContact key={index} icon={data.icon} description={data.description!} />
           ))}
@@ -93,8 +104,8 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
           </div>
           <div className="flex items-center absolute mt-2">
             <div
-              className={`${!secondColor && 'bg-[#ffbd59]'} w-5 py-[1px]`}
-              style={{ background: secondColor }}
+              className={`${!secondBgColor && 'bg-[#ffbd59]'} w-5 py-[1px]`}
+              style={{ background: secondBgColor }}
             />
             <p className="pl-2 font-PoppinsRegular text-[10px]">{profil?.title}</p>
           </div>
@@ -106,8 +117,8 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
               <div className="w-full space-y-2">
                 <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
                 <div
-                  className={`${!firstColor && 'bg-[#303030]'} w-full py-[0.3px]`}
-                  style={{ background: firstColor }}
+                  className={`${!firstBgColor && 'bg-[#303030]'} w-full py-[0.3px]`}
+                  style={{ background: firstBgColor }}
                 />
                 <DescriptionProfil description={profil?.about} />
               </div>
@@ -120,8 +131,8 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
                 <div className="w-full space-y-2">
                   <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
                   <div
-                    className={`${!firstColor && 'bg-[#303030]'} w-full py-[0.3px]`}
-                    style={{ background: firstColor }}
+                    className={`${!firstBgColor && 'bg-[#303030]'} w-full py-[0.3px]`}
+                    style={{ background: firstBgColor }}
                   />
                   <div className="space-y-3">
                     {experiences?.map((data, index) => (

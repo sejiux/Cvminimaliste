@@ -15,10 +15,21 @@ interface SidebarProps {
   setValue: (value: number) => void;
   isSelected: boolean;
   setIsSelected: (value: boolean) => void;
+  setIsToggleModalFirstColor: (value: boolean) => void;
+  setIsToggleModalSecondColor: (value: boolean) => void;
 }
 
 const Sidebar: FC<SidebarProps> = (props) => {
-  const { sidebarData, selected, setSelected, setValue, isSelected, setIsSelected } = props;
+  const {
+    sidebarData,
+    selected,
+    setSelected,
+    setValue,
+    isSelected,
+    setIsSelected,
+    setIsToggleModalFirstColor,
+    setIsToggleModalSecondColor,
+  } = props;
 
   return (
     <aside
@@ -41,6 +52,8 @@ const Sidebar: FC<SidebarProps> = (props) => {
                   selected === index ? setIsSelected(!isSelected) : setIsSelected(true),
                     setSelected(index),
                     setValue(data.index);
+                  setIsToggleModalFirstColor(false);
+                  setIsToggleModalSecondColor(false);
                 }}
               >
                 {data.icon}

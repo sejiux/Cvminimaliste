@@ -1,6 +1,5 @@
 import React from 'react';
 import Profil from '@components/Sidebar/Forms/profil';
-import Skills from '@components/Forms/forms-skill';
 import Trainings from '@components/Sidebar/Forms/trainings';
 import Models from '@components/Sidebar/Forms/models';
 import Experiences from '@components/Sidebar/Forms/experiences';
@@ -10,6 +9,8 @@ import { AiFillSound, AiFillFund } from 'react-icons/ai';
 import { IoBriefcase } from 'react-icons/io5';
 import Skill from '@components/Sidebar/Forms/skill';
 import Language from '@components/Sidebar/Forms/language';
+import FirstColor from '@components/Sidebar/Forms/firstColor';
+import SecondColor from '@components/Sidebar/Forms/secondColor';
 
 const classOfSelected = (selected?: number, value?: number, isSelected?: boolean) => {
   const classes = `${
@@ -74,5 +75,16 @@ export const renderOfButtonSelected = (
       );
     default:
       return <Models setSelected={setSelected} setValue={setValue} />;
+  }
+};
+
+export const renderOfStyleSelected = (selectedColor: number) => {
+  switch (selectedColor) {
+    case 0:
+      return <FirstColor />;
+    case 1:
+      return <SecondColor />;
+    default:
+      return <FirstColor />;
   }
 };

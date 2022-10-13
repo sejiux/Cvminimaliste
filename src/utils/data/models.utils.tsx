@@ -3,16 +3,16 @@ import CV1 from 'images/cv/1.png';
 import CV2 from 'images/cv/2.png';
 import CV3 from 'images/cv/3.png';
 import CV4 from 'images/cv/4.png';
-import { ID } from '@datorama/akita';
 import CvWheeler from '@components/Models/cvWheeler';
 import CvHenderson from '@components/Models/cvHenderson';
 import CvHarrington from '@components/Models/cvHarrington';
 import CvMunson from '@components/Models/cvMunson';
-import { ProfilDto } from '@api/dto/profilDto';
-import { TrainingsDto } from '@api/dto/trainingsDto';
 import { ExperiencesDto } from '@api/dto/experiencesDto';
-import { SkillDto } from '@api/dto/skillDto';
+import { TrainingsDto } from '@api/dto/trainingsDto';
 import { LanguageDto } from '@api/dto/languageDto';
+import { ProfilDto } from '@api/dto/profilDto';
+import { SkillDto } from '@api/dto/skillDto';
+import { ID } from '@datorama/akita';
 
 export const modelsData = [
   {
@@ -40,8 +40,10 @@ export const renderOfModelsSelected = (
   experiences?: ExperiencesDto[],
   skill?: SkillDto,
   language?: LanguageDto,
-  firstColor?: string,
-  secondColor?: string
+  firstBgColor?: string,
+  secondBgColor?: string,
+  firstTextColor?: string,
+  secondTextColor?: string
 ) => {
   switch (selected) {
     case 0:
@@ -52,8 +54,10 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
-          firstColor={firstColor}
-          secondColor={secondColor}
+          firstBgColor={firstBgColor}
+          secondBgColor={secondBgColor}
+          firstTextColor={firstTextColor}
+          secondTextColor={secondTextColor}
         />
       );
     case 1:
@@ -64,8 +68,10 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
-          firstColor={firstColor}
-          secondColor={secondColor}
+          firstBgColor={firstBgColor}
+          secondBgColor={secondBgColor}
+          firstTextColor={firstTextColor}
+          secondTextColor={secondTextColor}
         />
       );
     case 2:
@@ -76,8 +82,10 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
-          firstColor={firstColor}
-          secondColor={secondColor}
+          firstBgColor={firstBgColor}
+          secondBgColor={secondBgColor}
+          firstTextColor={firstTextColor}
+          secondTextColor={secondTextColor}
         />
       );
     case 3:
@@ -88,8 +96,10 @@ export const renderOfModelsSelected = (
           experiences={experiences}
           skill={skill}
           language={language}
-          firstColor={firstColor}
-          secondColor={secondColor}
+          firstBgColor={firstBgColor}
+          secondBgColor={secondBgColor}
+          firstTextColor={firstTextColor}
+          secondTextColor={secondTextColor}
         />
       );
     default:

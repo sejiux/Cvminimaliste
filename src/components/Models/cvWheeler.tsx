@@ -17,15 +17,27 @@ interface CvWheelerProps {
   experiences?: ExperiencesDto[];
   skill?: SkillDto;
   language?: LanguageDto;
-  firstColor?: string;
-  secondColor?: string;
+  firstBgColor?: string;
+  secondBgColor?: string;
+  firstTextColor?: string;
+  secondTextColor?: string;
 }
 
 const CvWheeler: FC<CvWheelerProps> = (props) => {
-  const { profil, trainings, experiences, skill, language, firstColor, secondColor } = props;
+  const {
+    profil,
+    trainings,
+    experiences,
+    skill,
+    language,
+    firstBgColor,
+    secondBgColor,
+    firstTextColor,
+    secondTextColor,
+  } = props;
 
   return (
-    <div className="font-regular text-[#303030]">
+    <div className="font-regular" style={{ color: secondTextColor }}>
       <header className="relative">
         <div className="flex justify-between items-center">
           <div>
@@ -35,17 +47,20 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
             </div>
             <div className="flex items-center absolute -bottom-1">
               <div
-                className={`${!secondColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
-                style={{ background: secondColor }}
+                className={`${!secondBgColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
+                style={{ background: secondBgColor }}
               />
               <p className="pl-2 font-PoppinsRegular text-[10px]">{profil?.title}</p>
             </div>
           </div>
           <div
-            className={`${!secondColor && 'bg-[#ffbd59]'} w-36 h-24`}
-            style={{ background: secondColor }}
+            className={`${!secondBgColor && 'bg-[#ffbd59]'} w-36 h-24`}
+            style={{ background: secondBgColor }}
           >
-            <div className="text-[8px] text-[#303030] flex flex-col justify-center align-middle h-full pl-3">
+            <div
+              className="text-[8px] flex flex-col justify-center align-middle h-full pl-3"
+              style={{ color: secondTextColor }}
+            >
               {contactData(profil!).map((data, index) => (
                 <DescriptionContact key={index} icon={data.icon} description={data.description!} />
               ))}

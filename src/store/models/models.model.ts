@@ -1,7 +1,9 @@
-import { StyleDto } from '@api/dto/styleDto';
 import { ID } from '@datorama/akita';
 
 export interface ModelsModel {
   id: ID;
-  style?: StyleDto;
+  firstBgColor?: string;
+  secondBgColor?: string;
+  firstTextColor?: string;
+  secondTextColor?: string;
 }
