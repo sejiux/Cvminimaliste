@@ -29,7 +29,8 @@ const Language: FC<LanguageProps> = (props) => {
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-full overflow-x-hidden">
       <div className="space-y-2">
-        <h3 className="font-PoppinsBold text-gray-400 text-lg mb-10">Langues</h3>
+        <h3 className="font-PoppinsBold text-gray-400 text-lg">Langues</h3>
+        <hr className="mb-10" />
       </div>
       {language?.id! !== undefined && <FormsLanguage language={language!} />}
       <button

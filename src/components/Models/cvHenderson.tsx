@@ -62,12 +62,15 @@ const CvHenderson: FC<CVHendersonProps> = (props) => {
             className={`${!secondBgColor && 'bg-[#ffbd59]'} w-40 h-auto py-2`}
             style={{ background: secondBgColor }}
           >
-            <div
-              className="text-[8px] flex flex-col justify-center align-middle h-full pl-3"
-              style={{ color: secondTextColor }}
-            >
+            <div className="text-[8px] flex flex-col justify-center align-middle h-full pl-3">
               {contactData(profil!).map((data, index) => (
-                <DescriptionContact key={index} icon={data.icon} description={data.description!} />
+                <DescriptionContact
+                  key={index}
+                  icon={data.icon}
+                  description={data.description!}
+                  textColor={secondTextColor}
+                  iconColor={secondTextColor}
+                />
               ))}
             </div>
           </div>

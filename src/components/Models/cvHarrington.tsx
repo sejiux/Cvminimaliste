@@ -46,9 +46,15 @@ const CvHarrington: FC<CVHarringtonProps> = (props) => {
           className={`${!secondBgColor && 'bg-[#ffbd59]'} w-[1.7px] h-6 ml-1`}
           style={{ background: secondBgColor }}
         />
-        <div className="text-[8px] flex flex-col h-auto pt-2" style={{ color: firstTextColor }}>
+        <div className="text-[8px] flex flex-col h-auto pt-2">
           {contactData(profil!).map((data, index) => (
-            <DescriptionContact key={index} icon={data.icon} description={data.description!} />
+            <DescriptionContact
+              key={index}
+              icon={data.icon}
+              description={data.description!}
+              textColor={firstTextColor}
+              iconColor={firstTextColor}
+            />
           ))}
         </div>
         <div className="space-y-4 mt-7">

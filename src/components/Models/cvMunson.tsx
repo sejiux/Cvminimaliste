@@ -45,7 +45,12 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
         />
         <div className="text-[8px] text-[#303030] flex flex-col ml-1 mt-2 z-20">
           {contactData(profil!).map((data, index) => (
-            <DescriptionContact key={index} icon={data.icon} description={data.description!} />
+            <DescriptionContact
+              key={index}
+              icon={data.icon}
+              description={data.description!}
+              iconColor={secondTextColor}
+            />
           ))}
         </div>
         <aside
@@ -118,7 +123,9 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
           <div className="space-y-4">
             <div className="space-y-4">
               <div className="w-full space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular">Profil</h3>
+                <h3 className="text-[11px]" style={{ fontFamily: 'Arial' }}>
+                  Profil
+                </h3>
                 <div
                   className={`${!firstBgColor && 'bg-[#303030]'} w-5 h-[0.3px]`}
                   style={{ background: firstBgColor }}

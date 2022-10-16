@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {
-  sidebarData,
-  renderOfButtonSelected,
-  renderOfStyleSelected,
-} from '@utils/data/sidebar.utils';
+import { sidebarData, renderOfButtonSelected } from '@utils/data/sidebar.utils';
 import { renderOfModelsSelected } from '@utils/data/models.utils';
 import { ExperiencesDto } from '@api/dto/experiencesDto';
 import { experiencesQuery } from '@store/experiences';
 import { trainingsQuery } from '@store/trainings';
 import { languageQuery } from '@store/language';
 import { TrainingsDto } from '@api/dto/trainingsDto';
+import { BiFontFamily } from 'react-icons/bi';
 import { profilQuery } from '@store/profil';
 import { LanguageDto } from '@api/dto/languageDto';
 import { modelsQuery } from '@store/models';
@@ -21,11 +18,12 @@ import { ID } from '@datorama/akita';
 import Sidebar from '@components/Sidebar';
 import Layout from 'components/layout';
 import Modal from '@components/Modal';
+import Style from '@components/Sidebar/Forms/style';
 
 const Create = () => {
   const [selected, setSelected] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(0);
   const [value, setValue] = useState(0);
+  const [selectedStyle, setSelectedStyle] = useState(0);
   const [isSelected, setIsSelected] = useState(true);
   const [modelsSelected, setModelsSelected] = useState<ID | undefined>(0);
   const [profil, setProfil] = useState<ProfilDto | undefined>(undefined);
@@ -34,8 +32,7 @@ const Create = () => {
   const [skill, setSkill] = useState<SkillDto | undefined>(undefined);
   const [language, setLanguage] = useState<LanguageDto | undefined>(undefined);
   const [isDownload, setIsDownload] = useState<boolean>(false);
-  const [isToggleModalFirstColor, setIsToggleModalFirstColor] = useState<boolean>(false);
-  const [isToggleModalSecondColor, setIsToggleModalSecondColor] = useState<boolean>(false);
+  const [isToggleModal, setIsToggleModal] = useState<boolean>(false);
   const [firstBgColor, setFirstBgColor] = useState<string | undefined>(undefined);
   const [secondBgColor, setSecondBgColor] = useState<string | undefined>(undefined);
   const [firstTextColor, setFirstTextColor] = useState<string | undefined>(undefined);
@@ -81,22 +78,22 @@ const Create = () => {
         <div className="flex h-full">
           <Sidebar
             sidebarData={sidebarData}
-            setSelected={setSelected}
             selected={selected}
+            setSelected={setSelected}
             setValue={setValue}
-            setIsSelected={setIsSelected}
             isSelected={isSelected}
-            setIsToggleModalFirstColor={setIsToggleModalFirstColor}
-            setIsToggleModalSecondColor={setIsToggleModalSecondColor}
+            setIsSelected={setIsSelected}
+            isToggleModal={isToggleModal}
+            setIsToggleModal={setIsToggleModal}
           />
           {value === selected && isSelected && (
             <div className="bg-white w-[650px] h-full rounded-r-md">
               {renderOfButtonSelected(selected, setSelected, setValue, setIsDownload)}
             </div>
           )}
-          {!isSelected && (isToggleModalFirstColor || isToggleModalSecondColor) && (
+          {!isSelected && isToggleModal && (
             <div className="bg-white w-[650px] h-full rounded-r-md">
-              {renderOfStyleSelected(selectedColor)}
+              <Style selectedStyle={selectedStyle} />
             </div>
           )}
           <div className="flex justify-center align-middle items-center w-full space-x-4">
@@ -116,22 +113,36 @@ const Create = () => {
             </div>
             <div className="h-[600px] flex justify-end flex-col space-y-2">
               <button
-                className={`${!firstBgColor && 'bg-[#191919]'} rounded-md w-10 h-10 mt-24`}
+                className={`${
+                  isToggleModal && selectedStyle === 0 && 'border-2 border-[#191919]'
+                } bg-white rounded-md w-10 h-10 mt-24`}
                 onClick={() => {
-                  setIsToggleModalFirstColor(!isToggleModalFirstColor),
-                    setIsToggleModalSecondColor(false),
+                  setIsToggleModal(selectedStyle === 0 ? !isToggleModal : true),
                     setIsSelected(false),
-                    setSelectedColor(0);
+                    setSelectedStyle(0);
+                }}
+              >
+                <BiFontFamily className="text-2xl mx-auto" />
+              </button>
+              <button
+                className={`${!firstBgColor && 'bg-[#191919]'} ${
+                  isToggleModal && selectedStyle === 1 && 'border-2 border-[#191919]'
+                } rounded-md w-10 h-10 mt-24`}
+                onClick={() => {
+                  setIsToggleModal(selectedStyle === 1 ? !isToggleModal : true),
+                    setIsSelected(false),
+                    setSelectedStyle(1);
                 }}
                 style={{ background: firstBgColor }}
               ></button>
               <button
-                className={`${!secondBgColor && 'bg-[#FFBD59]'} rounded-md w-10 h-10 mt-24`}
+                className={`${!secondBgColor && 'bg-[#FFBD59]'} ${
+                  isToggleModal && selectedStyle === 2 && 'border-2 border-[#191919]'
+                } rounded-md w-10 h-10 mt-24`}
                 onClick={() => {
-                  setIsToggleModalSecondColor(!isToggleModalSecondColor),
-                    setIsToggleModalFirstColor(false),
+                  setIsToggleModal(selectedStyle === 2 ? !isToggleModal : true),
                     setIsSelected(false),
-                    setSelectedColor(1);
+                    setSelectedStyle(2);
                 }}
                 style={{ background: secondBgColor }}
               ></button>

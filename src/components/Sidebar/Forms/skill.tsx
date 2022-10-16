@@ -28,7 +28,8 @@ const Skill: FC<SkillProp> = (props) => {
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-full overflow-x-hidden">
       <div className="space-y-2">
-        <h3 className="font-PoppinsBold text-gray-400 text-lg mb-10">Compétences</h3>
+        <h3 className="font-PoppinsBold text-gray-400 text-lg">Compétences</h3>
+        <hr className="mb-10" />
       </div>
       {skill?.id! !== undefined && <FormsSkill skill={skill!} />}
       <button

@@ -24,7 +24,8 @@ const Profil: FC<ProfilProps> = (props) => {
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-auto overflow-x-hidden">
       <div className="space-y-2">
-        <h3 className="font-PoppinsBold text-gray-400 text-lg mb-10">Profil</h3>
+        <h3 className="font-PoppinsBold text-gray-400 text-lg">Profil</h3>
+        <hr className="pb-3" />
         <FormsProfil profil={profil!} />
         <div className="flex space-x-6 justify-between items-center">
           <button

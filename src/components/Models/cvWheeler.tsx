@@ -18,26 +18,14 @@ interface CvWheelerProps {
   skill?: SkillDto;
   language?: LanguageDto;
   firstBgColor?: string;
-  secondBgColor?: string;
   firstTextColor?: string;
-  secondTextColor?: string;
 }
 
 const CvWheeler: FC<CvWheelerProps> = (props) => {
-  const {
-    profil,
-    trainings,
-    experiences,
-    skill,
-    language,
-    firstBgColor,
-    secondBgColor,
-    firstTextColor,
-    secondTextColor,
-  } = props;
+  const { profil, trainings, experiences, skill, language, firstBgColor, firstTextColor } = props;
 
   return (
-    <div className="font-regular" style={{ color: secondTextColor }}>
+    <div className="font-regular text-[#191919]">
       <header className="relative">
         <div className="flex justify-between items-center">
           <div>
@@ -47,22 +35,25 @@ const CvWheeler: FC<CvWheelerProps> = (props) => {
             </div>
             <div className="flex items-center absolute -bottom-1">
               <div
-                className={`${!secondBgColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
-                style={{ background: secondBgColor }}
+                className={`${!firstBgColor && 'bg-[#ffbd59]'} w-10 py-[1px]`}
+                style={{ background: firstBgColor }}
               />
               <p className="pl-2 font-PoppinsRegular text-[10px]">{profil?.title}</p>
             </div>
           </div>
           <div
-            className={`${!secondBgColor && 'bg-[#ffbd59]'} w-36 h-24`}
-            style={{ background: secondBgColor }}
+            className={`${!firstBgColor && 'bg-[#ffbd59]'} w-[37%]`}
+            style={{ background: firstBgColor }}
           >
-            <div
-              className="text-[8px] flex flex-col justify-center align-middle h-full pl-3"
-              style={{ color: secondTextColor }}
-            >
+            <div className="text-[8px] flex flex-col justify-center align-middle h-full pl-3 py-[30%]">
               {contactData(profil!).map((data, index) => (
-                <DescriptionContact key={index} icon={data.icon} description={data.description!} />
+                <DescriptionContact
+                  key={index}
+                  icon={data.icon}
+                  description={data.description!}
+                  iconColor={firstTextColor}
+                  textColor={firstTextColor}
+                />
               ))}
             </div>
           </div>

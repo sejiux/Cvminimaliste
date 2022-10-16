@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import Logo from 'images/logo.svg';
 
 interface SidebarProps {
@@ -15,8 +15,8 @@ interface SidebarProps {
   setValue: (value: number) => void;
   isSelected: boolean;
   setIsSelected: (value: boolean) => void;
-  setIsToggleModalFirstColor: (value: boolean) => void;
-  setIsToggleModalSecondColor: (value: boolean) => void;
+  isToggleModal: boolean;
+  setIsToggleModal: (value: boolean) => void;
 }
 
 const Sidebar: FC<SidebarProps> = (props) => {
@@ -27,13 +27,15 @@ const Sidebar: FC<SidebarProps> = (props) => {
     setValue,
     isSelected,
     setIsSelected,
-    setIsToggleModalFirstColor,
-    setIsToggleModalSecondColor,
+    isToggleModal,
+    setIsToggleModal,
   } = props;
 
   return (
     <aside
-      className={`${isSelected ? ' rounded-l-lg' : 'rounded-lg'} w-auto px-5 py-5 bg-white`}
+      className={`${
+        isSelected || isToggleModal ? ' rounded-l-lg' : 'rounded-lg'
+      } w-auto px-5 py-5 bg-white`}
       aria-label="Sidebar"
     >
       <div className="relative h-full mx-auto w-[85px] bg-gray-100 rounded-lg">
@@ -51,9 +53,8 @@ const Sidebar: FC<SidebarProps> = (props) => {
                 onClick={() => {
                   selected === index ? setIsSelected(!isSelected) : setIsSelected(true),
                     setSelected(index),
-                    setValue(data.index);
-                  setIsToggleModalFirstColor(false);
-                  setIsToggleModalSecondColor(false);
+                    setValue(data.index),
+                    setIsToggleModal(false);
                 }}
               >
                 {data.icon}

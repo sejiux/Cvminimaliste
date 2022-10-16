@@ -55,9 +55,7 @@ export const renderOfModelsSelected = (
           skill={skill}
           language={language}
           firstBgColor={firstBgColor}
-          secondBgColor={secondBgColor}
           firstTextColor={firstTextColor}
-          secondTextColor={secondTextColor}
         />
       );
     case 1:
