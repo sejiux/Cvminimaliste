@@ -38,5 +38,19 @@ export class ModelsService {
       secondTextColor: color,
     }));
   };
+
+  addFontText = (fontFamily: string) => {
+    this.store.update((state) => ({
+      ...state,
+      fontText: fontFamily,
+    }));
+  };
+
+  addFontTitle = (fontFamily: string) => {
+    this.store.update((state) => ({
+      ...state,
+      fontTitle: fontFamily,
+    }));
+  };
 }
 export const modelsService = new ModelsService(modelsStore);

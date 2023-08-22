@@ -34,7 +34,7 @@ const Models: FC<ModelsProps> = (props) => {
           <button
             key={index}
             className={`${
-              modelsSelected === index ? 'border-[#24445c] shadow-xl' : 'opacity-50'
+              modelsSelected === index ? 'border-[#014b8e] shadow-xl' : 'opacity-50'
             } border-2 w-auto shadow-md hover:border-gray-400 hover:opacity-80 rounded-md`}
             onClick={() => modelsService.handleModelSelected(index)}
           >
@@ -51,7 +51,7 @@ const Models: FC<ModelsProps> = (props) => {
           Accueil
         </button>
         <button
-          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-[#014b8e] w-full hover:bg-[#003a6d] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
             setSelected(1), setValue(1);
           }}

@@ -10,18 +10,18 @@ const widthCardData = isMobiles ? '45px' : '60px';
 export const cardPresentationData = [
   {
     iconSVG: <IconChoice width={widthCardData} />,
-    title: 'Choisissez',
+    title: 'Choisissez un modèle',
     description: `Recommandés par les recruteurs, nos modèles sont conçu pour être original, percutant et professionnel.`,
   },
   {
     iconSVG: <IconUpdate width={widthCardData} />,
-    title: 'Remplissez',
+    title: 'Remplissez vos informations',
     description:
       'En remplissant vos informations, tous les modèles se mettront automatiquement à jour.',
   },
   {
     iconSVG: <IconDownload width={widthCardData} />,
-    title: 'Téléchargez',
+    title: 'Téléchargez votre CV',
     description:
       "Une fois remplis, téléchargez votre CV, pas d'abonnement ni d'inscription, c'est simple et rapide.",
   },

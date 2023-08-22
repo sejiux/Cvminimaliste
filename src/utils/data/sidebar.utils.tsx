@@ -12,7 +12,7 @@ import Language from '@components/Sidebar/Forms/language';
 
 const classOfSelected = (selected?: number, value?: number, isSelected?: boolean) => {
   const classes = `${
-    selected === value && isSelected ? 'text-[#24445c]' : 'text-gray-400'
+    selected === value && isSelected ? 'text-[#014b8e]' : 'text-gray-400'
   } mx-auto w-7 h-7 mb-2 transition duration-75`;
   return classes;
 };

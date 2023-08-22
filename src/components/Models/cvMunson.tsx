@@ -21,6 +21,8 @@ interface CVMunsonProps {
   secondBgColor?: string;
   firstTextColor?: string;
   secondTextColor?: string;
+  fontText?: string;
+  fontTitle?: string;
 }
 
 const CvMunson: FC<CVMunsonProps> = (props) => {
@@ -34,16 +36,21 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
     secondBgColor,
     firstTextColor,
     secondTextColor,
+    fontText,
+    fontTitle,
   } = props;
 
   return (
     <div className="h-full px-3 py-5 flex justify-center relative z-0 text-[#303030]">
-      <div className="flex flex-col w-44 justify-between">
+      <div className="flex flex-col w-64 max-w-[256px] justify-between">
         <div
-          className={`${!secondBgColor && 'bg-[#ffbd59]'} w-4 h-[90px] absolute top-0`}
+          className={`${!secondBgColor && 'bg-[#ffbd59]'} w-4 h-[110px] absolute top-0`}
           style={{ background: secondBgColor }}
         />
-        <div className="text-[8px] text-[#303030] flex flex-col ml-1 mt-2 z-20">
+        <div
+          className="text-[8px] text-[#303030] flex flex-col ml-1 mt-2 z-20"
+          style={{ fontFamily: fontText }}
+        >
           {contactData(profil!).map((data, index) => (
             <DescriptionContact
               key={index}
@@ -54,15 +61,25 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
           ))}
         </div>
         <aside
-          className={`${!firstBgColor && 'bg-[#303030]'} relative h-[82%] px-4 py-3`}
+          className={`${!firstBgColor && 'bg-[#303030]'} relative h-[82%] px-4 py-3 w-[180px]`}
           style={{ background: firstBgColor, color: firstTextColor }}
         >
           <div className="space-y-4">
             {trainings?.length! > 0 && (
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular">Formations</h3>
+              <div
+                className="space-y-1"
+                style={{ color: !firstTextColor ? 'white' : firstTextColor }}
+              >
+                <h3
+                  className="text-[12px] tracking-[5px] font-medium uppercase"
+                  style={{
+                    fontFamily: fontText,
+                  }}
+                >
+                  Formations
+                </h3>
                 <div className="w-5 h-[0.3px] bg-white" />
-                <div className="space-y-3 pt-2">
+                <div className="space-y-3 pt-2" style={{ fontFamily: fontText }}>
                   {trainings?.map((data, index) => (
                     <DescriptionFormations
                       key={index}
@@ -75,20 +92,40 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
             )}
 
             {skill?.id! !== undefined && (
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular">Compétences</h3>
+              <div
+                className="space-y-1"
+                style={{ color: !firstTextColor ? 'white' : firstTextColor }}
+              >
+                <h3
+                  className="text-[12px] tracking-[5px] font-medium uppercase"
+                  style={{
+                    fontFamily: fontText,
+                  }}
+                >
+                  Compétences
+                </h3>
                 <div className="w-5 h-[0.3px] bg-white" />
-                <div className="space-y-3 pt-2">
+                <div className="space-y-3 pt-2" style={{ fontFamily: fontText }}>
                   <DescriptionMore title={skill?.description} />
                 </div>
               </div>
             )}
 
             {language?.id! !== undefined && (
-              <div className="space-y-1">
-                <h3 className="text-[11px] font-PoppinsRegular">Langues</h3>
+              <div
+                className="space-y-1"
+                style={{ color: !firstTextColor ? 'white' : firstTextColor }}
+              >
+                <h3
+                  className="text-[12px] tracking-[5px] font-medium uppercase"
+                  style={{
+                    fontFamily: fontText,
+                  }}
+                >
+                  Langues
+                </h3>
                 <div className="w-5 h-[0.3px] bg-white" />
-                <div className="space-y-3 pt-2">
+                <div className="space-y-3 pt-2" style={{ fontFamily: fontText }}>
                   <DescriptionMore title={language?.description} />
                 </div>
               </div>
@@ -99,20 +136,24 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
 
       <div className="flex flex-col w-full">
         <header
-          className={`${!firstBgColor && 'bg-[#303030]'} relative`}
-          style={{ background: firstBgColor, color: firstTextColor }}
+          className={`${!firstBgColor && 'bg-[#303030]'} relative py-5`}
+          style={{ background: firstBgColor, color: !firstTextColor ? 'white' : firstTextColor }}
         >
-          <div className="text-xl leading-6 flex space-x-2 p-5">
-            <h3 className="font-PoppinsRegular">{profil?.name}</h3>
-            <h5 className="font-PoppinsBold">{profil?.firstName}</h5>
+          <div className="text-2xl uppercase leading-6 flex space-x-2 p-5 tracking-[5px]">
+            <h3 className="font-normal" style={{ fontFamily: fontTitle }}>
+              {profil?.name}
+            </h3>
+            <h5 className="font-normal" style={{ fontFamily: fontTitle }}>
+              {profil?.firstName}
+            </h5>
           </div>
           <div
-            className={`${!secondBgColor && 'bg-[#ffbd59]'} w-32 h-6 absolute -mt-3`}
+            className={`${!secondBgColor && 'bg-[#ffbd59]'} w-44 h-8 absolute mt-1`}
             style={{ background: secondBgColor }}
           >
             <p
-              className="font-PoppinsRegular text-[10px] flex items-center justify-center h-full"
-              style={{ color: secondTextColor }}
+              className="text-[12px] flex items-center justify-start pl-5 h-full"
+              style={{ color: !secondTextColor ? 'white' : secondTextColor, fontFamily: fontText }}
             >
               {profil?.title}
             </p>
@@ -123,14 +164,17 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
           <div className="space-y-4">
             <div className="space-y-4">
               <div className="w-full space-y-1">
-                <h3 className="text-[11px]" style={{ fontFamily: 'Arial' }}>
+                <h3
+                  className="text-[12px] tracking-[5px] font-medium uppercase"
+                  style={{ fontFamily: fontText }}
+                >
                   Profil
                 </h3>
                 <div
                   className={`${!firstBgColor && 'bg-[#303030]'} w-5 h-[0.3px]`}
                   style={{ background: firstBgColor }}
                 />
-                <div className="pt-1">
+                <div className="pt-1" style={{ fontFamily: fontText }}>
                   <DescriptionProfil description={profil?.about} />
                 </div>
               </div>
@@ -141,12 +185,17 @@ const CvMunson: FC<CVMunsonProps> = (props) => {
             {experiences?.length! > 0 && (
               <div className="space-y-4">
                 <div className="w-full space-y-1">
-                  <h3 className="text-[11px] font-PoppinsRegular">Expériences</h3>
+                  <h3
+                    className="text-[12px] tracking-[5px] font-medium uppercase"
+                    style={{ fontFamily: fontText }}
+                  >
+                    Expériences
+                  </h3>
                   <div
                     className={`${!firstBgColor && 'bg-[#303030]'} w-5 h-[0.3px]`}
                     style={{ background: firstBgColor }}
                   />
-                  <div className="space-y-3 pt-1">
+                  <div className="space-y-3 pt-1" style={{ fontFamily: fontText }}>
                     {experiences?.map((data, index) => (
                       <DescriptionXp
                         key={index}

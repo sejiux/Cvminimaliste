@@ -24,7 +24,7 @@ const Modal: FC<ModalProps> = (props) => {
         <div className="w-[370px] h-[550px] rounded-md bg-white">{children}</div>
         <div className="w-auto py-4 text-left space-y-4 bg-white rounded-md p-8">
           <div className="flex justify-between">
-            <h2 className="text-lg font-PoppinsBold text-[#24445c]">
+            <h2 className="text-lg font-Poppins font-bold text-[#24445c]">
               CV {lastName} {firstName}
             </h2>
             <h2 className="text-md font-semibold text-gray-500">14,95€</h2>

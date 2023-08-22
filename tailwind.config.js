@@ -3,14 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        PoppinsBlack: ['PoppinsBlack'],
-        PoppinsBold: ['PoppinsBold'],
-        PoppinsMedium: ['PoppinsMedium'],
-        PoppinsRegular: ['PoppinsRegular'],
-        PoppinsLight: ['PoppinsLight'],
-        PoppinsXLight: ['PoppinsXLight'],
-        FrontageRegular: ['FrontageRegular'],
-        FrontageBold: ['FrontageBold'],
+        Poppins: ['Poppins'],
+        Frontage: ['Frontage'],
       },
       fontSize: {
         fullscreen: '50vw',

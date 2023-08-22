@@ -12,6 +12,8 @@ export class ModelsQuery extends QueryEntity<ModelsModel> {
   secondBgColor$ = this.select((state) => state.secondBgColor);
   firstTextColor$ = this.select((state) => state.firstTextColor);
   secondTextColor$ = this.select((state) => state.secondTextColor);
+  fontText$ = this.select((state) => state.fontText);
+  fontTitle$ = this.select((state) => state.fontTitle);
 }
 
 export const modelsQuery = new ModelsQuery(modelsStore);

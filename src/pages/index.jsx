@@ -37,7 +37,7 @@ const IndexPage = () => {
       <Navbar
         logo={Logo}
         menu={<Menu className="block lg:hidden h-auto" />}
-        buttonTitle="Créer un CV"
+        buttonTitle="Créer un nouveau CV"
         handleClick={() => navigate('/create')}
         navbarLink={[
           {
@@ -61,20 +61,22 @@ const IndexPage = () => {
 
       <Header
         subtitle="Simple et rapide, choisissez, remplissez et téléchargez votre modèle favoris."
-        buttonTitle="Choisir mon CV"
+        buttonTitle="Créer un nouveau CV"
       >
-        <h1 className="mx-auto text-3xl xs:text-4xl lg:text-5xl 2xl:text-6xl 4xl:text-8xl md:w-[580px] lg:w-full sm:leading-[50px] md:leading-[60px] lg:leading-[60px] 4xl:leading-[80px] font-FrontageRegular">
+        <h1 className="mx-auto text-3xl xs:text-4xl lg:text-5xl 2xl:text-6xl 4xl:text-8xl md:w-[580px] lg:w-full sm:leading-[50px] md:leading-[60px] lg:leading-[60px] 4xl:leading-[80px] font-Frontage font-normal">
           <strong>
             Créez votre CV <br />
-            <span className="text-[#24445c] font-FrontageBold">minimaliste</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#014b8e] to-[#049be7] font-Frontage font-bold">
+              minimaliste
+            </span>
           </strong>
         </h1>
       </Header>
 
-      <section id="modedemploi" className="bg-[#F7FAFC] w-full">
-        <div className="py-20 lg:py-24 lg:w-[90%] 2xl:w-[60%] mx-auto">
+      <section id="modedemploi" className="bg-gradient-to-r from-[#014b8e] to-[#049be7] w-full">
+        <div className="py-20 lg:py-24 lg:w-[90%] 2xl:w-[60%] mx-auto text-white">
           <Description title="Comment ça marche ?" />
-          <div className="flex flex-col lg:flex-row lg:justify-around space-y-5 items-center px-8 lg:px-0 lg:items-baseline lg:space-x-5 pt-9">
+          <div className="flex flex-col lg:flex-row lg:justify-around space-y-5 items-center px-8 lg:px-0 lg:items-baseline lg:space-x-5 pt-9 text-[#191919]">
             {cardPresentationData.map((data, index) => (
               <Card
                 key={index}
@@ -87,7 +89,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section
+      {/* <section
         id="exemples"
         className="bg-[#24445c] text-white h-screen mx-auto text-center py-20 lg:py-24 px-5 xs:px-8"
       >
@@ -105,7 +107,7 @@ const IndexPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="faq" className="bg-[#F7FAFC] w-full">
         <div className="py-20 lg:py-24 w-[80%] md:w-[70%] lg:w-[80%] 2xl:w-full mx-auto">
@@ -120,7 +122,7 @@ const IndexPage = () => {
                 onSelected={index}
               >
                 {selected === index && (
-                  <div className="pt-10 pb-5 font-PoppinsXLight">{data.description}</div>
+                  <div className="pt-10 pb-5 font-Poppins font-extralight">{data.description}</div>
                 )}
               </Faq>
             ))}
@@ -128,7 +130,10 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section id="support" className="h-[auto] mx-auto text-center py-20 lg:py-24 px-5 xs:px-8">
+      <section
+        id="support"
+        className="h-[auto] mx-auto text-center py-20 lg:py-24 px-5 xs:px-8 bg-gradient-to-r from-[#014b8e] to-[#049be7] text-white"
+      >
         <Description
           title="Vous avez d'autres questions ?"
           subtitle="Une équipe dédiée au Support est disponible pour répondre à toutes vos questions."

@@ -13,20 +13,20 @@ const Description: FC<DescriptionProps> = (props) => {
   return (
     <div>
       <h2
-        className={`text-center font-FrontageRegular text-xl md:text-3xl ${
+        className={`text-center font-Frontage font-normal text-xl md:text-3xl ${
           button ? 'pb-14 lg:pb-20' : 'pb-5 lg:pb-10 2xl:pb-14'
         } w-[80%] xs:w-[80%] sm:w-[60%] lg:w-[40%] 2xl:w-[14%] mx-auto md:leading-[45px]`}
       >
         <strong>{title}</strong>
       </h2>
-      <p className="md:w-[400px] lg:w-[500px] text-base lg:text-lg xl:text-md font-PoppinsXLight mx-auto lg:-mt-7">
+      <p className="md:w-[400px] lg:w-[500px] text-base lg:text-lg xl:text-md font-Poppins font-extralight mx-auto lg:-mt-7">
         {subtitle}
       </p>
       {button && (
         <button
-          className="mx-auto bg-[#24445c] mt-14 hover:bg-white hover:text-[#24445c] hover:border-2 hover:border-[#24445c] text-white font-FrontageBold px-14 py-5 md:px-20 xs:h-16 lg:py-4 lg:px-8 text-xs xs:text-sm lg:text-sm 4xl:text-xl rounded-lg"
+          className="mx-auto mt-14 bg-white border-[#049be7] hover:bg-gray-200 text-[#049be7] font-Poppins font-normal px-14 py-5 md:px-20 xs:h-16 lg:py-4 lg:px-8 text-xs xs:text-sm lg:text-sm 4xl:text-xl rounded-lg"
           onClick={() => {
-            navigate('mailto:bcktvs@gmail.com');
+            navigate('mailto:cvminimaliste@gmail.com');
           }}
         >
           Contactez nous

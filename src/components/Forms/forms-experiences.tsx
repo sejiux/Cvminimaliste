@@ -22,7 +22,7 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
           <input
             type={formExperiencesOneCols.type}
             id={formExperiencesOneCols.name}
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
             onChange={updateExperienceField(
               formExperiencesOneCols.name,
               experiences,
@@ -42,7 +42,7 @@ const FormsExperiences: FC<FormsExperiencesProps> = (props) => {
               <input
                 type="date"
                 id={formDataTwoCols.name}
-                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
                 onChange={updateExperienceField(formDataTwoCols.name, experiences, experienceId!)}
                 value={formDataTwoCols.value?.toString()}
               ></input>

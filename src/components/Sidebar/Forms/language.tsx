@@ -29,7 +29,7 @@ const Language: FC<LanguageProps> = (props) => {
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-full overflow-x-hidden">
       <div className="space-y-2">
-        <h3 className="font-PoppinsBold text-gray-400 text-lg">Langues</h3>
+        <h3 className="font-Poppins font-bold text-gray-400 text-lg">Langues</h3>
         <hr className="mb-10" />
       </div>
       {language?.id! !== undefined && <FormsLanguage language={language!} />}
@@ -42,15 +42,15 @@ const Language: FC<LanguageProps> = (props) => {
         className={`${
           language?.id! !== undefined
             ? 'hidden'
-            : 'w-full mx-auto mt-5 text-xs border border-[#24445c] py-5 px-9 rounded-md text-[#24445c] flex items-center justify-center hover:shadow-md'
+            : 'w-full mx-auto mt-5 text-xs border border-[#014b8e] py-5 px-9 rounded-md text-[#014b8e] flex items-center justify-center hover:shadow-md'
         } `}
       >
-        <MdOutlineAdd className="text-[#303030] mr-2 text-lg" />
+        <MdOutlineAdd className="text-[#014b8e] mr-2 text-lg" />
         Ajouter vos langues
       </button>
-      <div className="flex space-x-6 justify-between items-center mt-4">
+      <div className="flex space-x-4 justify-between items-center mt-4">
         <button
-          className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-[#014b8e] w-full hover:bg-[#003a6d] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
           onClick={() => {
             setSelected(4), setValue(4);
           }}
@@ -58,8 +58,10 @@ const Language: FC<LanguageProps> = (props) => {
           <BsArrowLeftShort className="text-xl" />
           Précédent
         </button>
-        <button className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center" 
-          onClick={() => setIsDownload(true)}>
+        <button
+          className="bg-[#014b8e] w-full hover:bg-[#003a6d] text-white py-5 px-9 text-xs rounded-lg shadow-lg flex items-center justify-center"
+          onClick={() => setIsDownload(true)}
+        >
           Télécharger
           <BsDownload className="text-xl ml-2" />
         </button>

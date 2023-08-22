@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Logo from 'images/logo.svg';
+import { navigate } from 'gatsby';
 
 interface SidebarProps {
   sidebarData: (
@@ -40,15 +41,17 @@ const Sidebar: FC<SidebarProps> = (props) => {
     >
       <div className="relative h-full mx-auto w-[85px] bg-gray-100 rounded-lg">
         <ul className="list-none h-full flex flex-col justify-between py-2">
-          <Logo className="text-[#24445c] w-full h-24" />
+          <button onClick={() => navigate('/')}>
+            <Logo className="text-[#014b8e] w-full h-24" />
+          </button>
           {sidebarData(selected, isSelected).map((data, index) => (
             <li key={index} className="list-none -ml-[3px]">
               <button
                 type="button"
                 className={`${
                   selected === index && isSelected
-                    ? 'border-l-4 border-[#24445c] rounded-[3px] w-full px-2 py-4 text-[#24445c]'
-                    : 'px-2 py-4 w-full hover:border-l-4 hover:border-[#24445c]'
+                    ? 'border-l-4 border-[#014b8e] rounded-[3px] w-full px-2 py-4 text-[#014b8e]'
+                    : 'px-2 py-4 w-full hover:border-l-4 hover:border-[#014b8e]'
                 }`}
                 onClick={() => {
                   selected === index ? setIsSelected(!isSelected) : setIsSelected(true),
@@ -60,7 +63,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
                 {data.icon}
                 <span
                   className={`${
-                    selected === index && isSelected ? 'text-[#24445c]' : 'text-gray-400'
+                    selected === index && isSelected ? 'text-[#014b8e]' : 'text-gray-400'
                   } text-[10px] font-normal hidden md:block`}
                 >
                   {data.name}

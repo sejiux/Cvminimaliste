@@ -24,12 +24,12 @@ const Profil: FC<ProfilProps> = (props) => {
   return (
     <div className="pl-1 pr-6 py-5 text-[#303030] h-auto overflow-x-hidden">
       <div className="space-y-2">
-        <h3 className="font-PoppinsBold text-gray-400 text-lg">Profil</h3>
+        <h3 className="font-Poppins font-bold text-gray-400 text-lg">Profil</h3>
         <hr className="pb-3" />
         <FormsProfil profil={profil!} />
-        <div className="flex space-x-6 justify-between items-center">
+        <div className="flex space-x-4 justify-between items-center">
           <button
-            className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-md shadow-lg flex items-center justify-center"
+            className="bg-[#014b8e] w-full hover:bg-[#003a6d] text-white py-5 px-9 text-xs rounded-md shadow-lg flex items-center justify-center"
             onClick={() => {
               setSelected(0), setValue(0);
             }}
@@ -38,7 +38,7 @@ const Profil: FC<ProfilProps> = (props) => {
             Précédent
           </button>
           <button
-            className="bg-[#24445c] w-full hover:bg-[#1b3344] text-white py-5 px-9 text-xs rounded-md shadow-lg flex items-center justify-center"
+            className="bg-[#014b8e] w-full hover:bg-[#003a6d] text-white py-5 px-9 text-xs rounded-md shadow-lg flex items-center justify-center"
             onClick={() => {
               setSelected(2), setValue(2);
             }}

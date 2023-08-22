@@ -28,8 +28,8 @@ const Faq: FC<FaqProps> = (props) => {
           type="button"
           className={`
             ${
-              isSelected() ? 'font-PoppinsRegular' : 'font-PoppinsXLight text-gray-500'
-            } text-[#171923] flex justify-between items-center py-5 w-full  text-left border-b border-gray-700 '`}
+              isSelected() ? 'font-normal' : 'font-extralight text-gray-500'
+            } font-Poppins text-[#171923] flex justify-between items-center py-5 w-full  text-left border-b border-gray-700 '`}
         >
           <span>{title}</span>
           {isSelected() ? (

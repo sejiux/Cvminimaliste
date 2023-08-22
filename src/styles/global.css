@@ -1,34 +1,167 @@
+/** POPPINS */
+
+/** poppins-thin */
 @font-face {
-    font-family: 'PoppinsBlack';
-    src: url('../assets/police/Poppins-Black.otf');
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-ExtraLight.otf');
+}
+
+/** poppins-extra-light */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-ExtraLight.otf');
+}
+
+/** poppins-light */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-Light.otf');
+}
+
+/** poppins-regular */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-Regular.otf');
+}
+
+/** poppins-medium */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-Medium.otf');
+}
+
+/** poppins-bold */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-Bold.otf');
+}
+
+/** poppins-black */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/font/poppins/Poppins-Black.otf');
+}
+
+/** ------------------ */
+/** FRONTAGE */
+@font-face {
+  font-family: 'Frontage';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/font/frontage/Frontage-Regular.otf');
 }
 @font-face {
-  font-family: 'PoppinsBold';
-  src: url('../assets/police/Poppins-Bold.otf');
+  font-family: 'Frontage';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/font/frontage/Frontage-Bold.otf');
 }
+
+/** ------------------ */
+/** RALEWAY */
+
+/** raleway-thin */
 @font-face {
-  font-family: 'PoppinsMedium';
-  src: url('../assets/police/Poppins-Medium.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-ExtraLight.ttf');
 }
+
+/** raleway-extra-light */
 @font-face {
-  font-family: 'PoppinsRegular';
-  src: url('../assets/police/Poppins-Regular.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-ExtraLight.ttf');
 }
+
+/** raleway-light */
 @font-face {
-  font-family: 'PoppinsLight';
-  src: url('../assets/police/Poppins-Light.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Light.ttf');
 }
+
+/** raleway-regular */
 @font-face {
-  font-family: 'PoppinsXLight';
-  src: url('../assets/police/Poppins-ExtraLight.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Regular.ttf');
 }
+
+/** raleway-medium */
 @font-face {
-  font-family: 'FrontageRegular';
-  src: url('../assets/police/Frontage-Regular.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Medium.ttf');
 }
+
+/** raleway-semi-bold */
 @font-face {
-  font-family: 'FrontageBold';
-  src: url('../assets/police/Frontage-Bold.otf');
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-SemiBold.ttf');
+}
+
+/** raleway-bold */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Bold.ttf');
+}
+
+/** raleway-extra-bold */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Bold.ttf');
+}
+
+/** raleway-black */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/font/raleway/Raleway-Black.ttf');
 }
 
 @tailwind base;
@@ -40,7 +173,7 @@
 }
 
 ul li {
-  margin-left: 7px;
+  margin-left: 10px;
 }
 
 .colorsPicker {
@@ -50,7 +183,6 @@ ul li {
 .colorsPicker > span > div {
   @apply mr-3 mb-3 w-10 h-10 rounded-md !important;
 }
-
 
 .colorsPicker > span > div > span > div {
   @apply border-2 rounded-md w-10 h-10 !important;

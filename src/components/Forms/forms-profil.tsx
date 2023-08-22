@@ -23,7 +23,7 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
               <input
                 type="text"
                 id={formDataTwoCols.name}
-                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
                 onChange={updateProfilField(formDataTwoCols.name, profil)}
                 value={
                   formDataTwoCols.value !== formDataTwoCols.initial
@@ -43,7 +43,7 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
           <input
             type={formDataOneCols.type}
             id={formDataOneCols.name}
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
             onChange={updateProfilField(formDataOneCols.name, profil)}
             value={
               formDataOneCols.value !== formDataOneCols.initial ? formDataOneCols.value : undefined
@@ -58,7 +58,7 @@ const FormsProfil: FC<FormsProfilProps> = (props) => {
         <textarea
           rows={6}
           id="about"
-          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+          className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
           onChange={updateProfilField('about', profil)}
           value={profil?.about !== profilInital.about ? profil?.about : undefined}
         ></textarea>

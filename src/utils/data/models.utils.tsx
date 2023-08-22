@@ -43,7 +43,11 @@ export const renderOfModelsSelected = (
   firstBgColor?: string,
   secondBgColor?: string,
   firstTextColor?: string,
-  secondTextColor?: string
+  secondTextColor?: string,
+  fontText?: string,
+  fontTitle?: string,
+  width?: number,
+  height?: number
 ) => {
   switch (selected) {
     case 0:
@@ -56,6 +60,10 @@ export const renderOfModelsSelected = (
           language={language}
           firstBgColor={firstBgColor}
           firstTextColor={firstTextColor}
+          fontTitle={fontTitle}
+          fontText={fontText}
+          width={width}
+          height={height}
         />
       );
     case 1:
@@ -70,6 +78,10 @@ export const renderOfModelsSelected = (
           secondBgColor={secondBgColor}
           firstTextColor={firstTextColor}
           secondTextColor={secondTextColor}
+          fontTitle={fontTitle}
+          fontText={fontText}
+          width={width}
+          height={height}
         />
       );
     case 2:
@@ -84,6 +96,9 @@ export const renderOfModelsSelected = (
           secondBgColor={secondBgColor}
           firstTextColor={firstTextColor}
           secondTextColor={secondTextColor}
+          fontTitle={fontTitle}
+          fontText={fontText}
+          width={width}
         />
       );
     case 3:
@@ -98,6 +113,8 @@ export const renderOfModelsSelected = (
           secondBgColor={secondBgColor}
           firstTextColor={firstTextColor}
           secondTextColor={secondTextColor}
+          fontTitle={fontTitle}
+          fontText={fontText}
         />
       );
     default:

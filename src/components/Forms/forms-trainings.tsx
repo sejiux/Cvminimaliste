@@ -22,7 +22,7 @@ const FormsTrainings: FC<FormsTrainingsProps> = (props) => {
           <input
             type={formTrainingOneCols.type}
             id={formTrainingOneCols.name}
-            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+            className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
             onChange={updateTrainingField(formTrainingOneCols.name, trainings, trainingId!)}
             value={formTrainingOneCols.value}
           ></input>
@@ -38,7 +38,7 @@ const FormsTrainings: FC<FormsTrainingsProps> = (props) => {
               <input
                 type={formDataTwoCols.type}
                 id={formDataTwoCols.name}
-                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-blue-800 focus:border-blue-800 block w-full p-2.5"
+                className="text-black shadow-sm bg-gray-100 border border-gray-200 text-xs rounded-md focus:ring-[#003a6d] focus:border-[#003a6d] block w-full p-2.5"
                 onChange={updateTrainingField(formDataTwoCols.name, trainings, trainingId!)}
                 value={formDataTwoCols.value?.toString()}
               ></input>
